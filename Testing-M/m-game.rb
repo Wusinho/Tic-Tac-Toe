@@ -1,5 +1,5 @@
 require_relative "m-Grid"
-require_relative "m-Turns"
+require_relative "m-turns"
 
 class InitGame
    
