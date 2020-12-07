@@ -1,11 +1,8 @@
 class Grid
     @@new_grid = []
   
-
     def initialize(grid)
-        @grid = grid.to_i   
-        
-        
+        @grid = grid.to_i    
     end
 
 
@@ -22,6 +19,17 @@ class Grid
     end
        
     
+
+    def change_element(item = "-1")
+      @@x_arr = @@new_grid.flatten
+
+      @@x_arr.collect! { |element|
+        (element == item) ? "X" : element
+      }
+      print @@x_arr
+    end   
+
+
     
 
     def print_table(margin_width = 2)
@@ -54,7 +62,7 @@ end
 
 
 
-grilla = Grid.new(3)
-grilla.create_grid
-grilla.print_table
+#grilla = Grid.new(3)
+#grilla.create_grid
+#grilla.print_table
 
