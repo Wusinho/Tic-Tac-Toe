@@ -1,9 +1,9 @@
 #!/usr/bin/env ruby
-
+# rubocop:disable Lint/NestedMethodDefinition, Metrics/MethodLength
 class InitGame
   def dialogo
     # Input Players
-    puts "Welcome to Tik-tak-toe EXTREME edition"
+    puts 'Welcome to Tik-tak-toe EXTREME edition'
     puts 'Whats your name?'
     @player1 = gets.chomp
     puts "Hello #{@player1} "
@@ -18,14 +18,13 @@ class InitGame
     grilla.create_grid
     grilla.print_table
     # Starting the game
-    puts "This is your board"
+    puts 'This is your board'
     puts [' 1 | 2 | 3 ']
     puts [' 4 | 5 | 6 ']
     puts [' 7 | 8 | 9 ']
     puts "Excelent #{@player1} and #{@player2}, let's begin"
     # Turns Methods
-    def do_move(move, @player2, grilla)
-      move = move
+    def do_move(move, player, grilla)
       until ((n..n).include? move) && (grilla.value? move)
         puts 'Invalid move'
         puts 'Write another number from the board'
@@ -33,10 +32,11 @@ class InitGame
       end
       grilla[move] = 'X'
       print_table(grilla)
-      puts "#{@player2} it's your turn. Choose one number from the board"
+      puts "#{player} it's your turn. Choose one number from the board"
     end
+
     # Loop
-    def game_on(@player1, @player2, grilla)
+    def game_on(_player1, _player2, grilla)
       # call a method to verify if theres a winner when the conditions are accomplish or if it's a draw
       # when the loop ends, ask the players if they want to play again or exit the game
       win = false
@@ -51,8 +51,12 @@ class InitGame
         grilla.print_table
         draw = true
       end
-      scenarios = { 1 => "#{@player1}, fatality, you won!", 2 => "#{@player2}, fatality, you won!", 3 => "It's a draw!"}
-      resilt = Random.new.rand(1..3)
+      scenarios = { 1 => "#{@player1}, fatality, you won!", 2 => "#{@player2},
+                          fatality, you won!",
+                    3 => "It's a draw!" }
+      result = Random.new.rand(1..3)
       puts scenarios[result]
+    end
   end
 end
+# rubocop:enable Lint/NestedMethodDefinition, Metrics/MethodLength
