@@ -64,5 +64,6 @@ end
 
 #grilla = Grid.new(3)
 #grilla.create_grid
-#grilla.print_table
+grilla.change_element(0)
 
+#grilla.print_table
