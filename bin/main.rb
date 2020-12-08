@@ -31,10 +31,11 @@ class InitGame < WinCondition
         
         win_c = WinCondition.new
 
-        switch = true
         
-        while switch
-
+        
+        while @@grilla != []
+            
+        
                 create_grid(@@grilla)
                 print "It is #{@Player_1} turn Pick a number : "
 
@@ -50,8 +51,9 @@ class InitGame < WinCondition
                 @@grilla[@turn_02-1] = "O"   
 
                 win_c.win(@@grilla, "O", @Player_1 ) 
-                
 
+            print @@grilla    
+                
         end
     end
 end
