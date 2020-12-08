@@ -32,12 +32,12 @@ class InitGame < WinCondition
 
       if move == true
         create_grid(@@grilla)
-        print "It is #{@player_1} turn Pick a number : "
+        print "It is #{@player1} turn Pick a number : "
 
         turn1 = gets.chomp.to_i
         @@grilla[turn1 - 1] = 'X'
 
-        win_c.win(@@grilla, 'X', @player_1)
+        win_c.win(@@grilla, 'X', @player1)
         move = false
 
       else
