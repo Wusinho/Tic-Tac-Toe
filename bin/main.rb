@@ -1,8 +1,8 @@
 #!/usr/bin/env ruby
 
-#require_relative "../lib/logic"
+require_relative "../lib/logic"
 
-class InitGame 
+class InitGame < WinCondition
     
     def initialize(name1 = 'pepeBOT', name2 = 'raulBOT')
         @turnA = name1
@@ -29,30 +29,41 @@ class InitGame
 
        puts "Hello #{@Player_2} "
         
+        win_c = WinCondition.new
+
         switch = true
         move = true
         while switch
-            if move == true
+
+            
+
                 create_grid(@@grilla)
                 print "It is #{@Player_1} turn Pick a number : "
                 @turn_01 = gets.chomp.to_i
                 @@grilla[@turn_01-1] = "X"                
-                move = false
-            else
+                win_c.win(@@grilla, "X", @Player_1 )
+
+                
+
+
+            
                 create_grid(@@grilla)
                 print "It is #{@Player_2} turn Pick a number : "
                 @turn_02 = gets.chomp.to_i
-                @@grilla[@turn_02-1] = "O"              
-                move = true
-            end
+                @@grilla[@turn_02-1] = "O"     
+                win_c.win(@@grilla, "O", @Player_1 ) 
+                
+                
+
+
+            
+            
 
         end
     end
 end
 game = InitGame.new
 game.Dialogo
-#game.change_element(4)
-#game.change_element(5)
-#game.change_element(6)
+
 
 
