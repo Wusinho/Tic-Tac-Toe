@@ -11,13 +11,13 @@ def create_grid(grilla)
 end
 
 def do_move(move, _player2, grilla)
-  until ((1..9).include? move) && (grilla.value? move)
+  until ((1..9).include? move) || (grilla.value? move)
     puts 'Invalid move'
     puts 'Write another number from the board'
     move = gets.chomp.to_i
   end
   grilla[move] = 'X'
-  print_table(grilla)
+  create_grid(grilla)
   puts "#{@player1} it's your turn. Choose one number from the board"
 end
 
@@ -34,7 +34,7 @@ def game_on(_player1, player2, grilla)
     puts "#{@player2}, it's your turn, choose a number from the board"
     move = gets.chomp
     do_move(move, player2, grilla)
-    grilla.print_table
+    create_grid(grilla)
     draw = true
   end
   scenarios = { 1 => "#{@player1}, fatality, you won!", 2 => "#{@player2},
