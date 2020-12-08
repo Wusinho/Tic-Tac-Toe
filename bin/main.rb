@@ -12,10 +12,21 @@ class InitGame < WinCondition
     puts "| #{arr[6]} | #{arr[7]} | #{arr[8]} |"
   end
 
+  def cheat_name
+    if (@player1) == nil
+        @player1 = gets.chomp
+        
+    end
+  end
+
+
   def dialogo
     # Input Players
     puts 'Whats your name?'
     @player1 = gets.chomp
+
+
+
 
     puts "Hello #{@player1} "
     puts 'Whats the name of your partner?'
