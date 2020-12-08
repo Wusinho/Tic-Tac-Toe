@@ -11,7 +11,7 @@ def create_grid(grilla)
 end
 
 def do_move(move, _player2, grilla)
-  until ((1..9).include? move) || (grilla.value? move)
+  until ((1..9).include? move) && (grilla.value? move)
     puts 'Invalid move'
     puts 'Write another number from the board'
     move = gets.chomp.to_i
@@ -61,10 +61,12 @@ Each square has a number and it starts at 1 and ends at 9. \n"
 create_grid(grilla)
 puts 'Write your number to select your move.'
 
-game_on(@player1, @player2, grilla)
+4.times do
+  game_on(@player1, @player2, grilla)
+end
 puts 'This is the score'
-puts "#{@player1}: games_won"
-puts "#{@player2}: games_won"
+puts "#{@player1}: 1"
+puts "#{@player2}: 0"
 puts 'Do you want to play another game?'
 puts 'Select yes or no'
 other_game = gets.chomp
