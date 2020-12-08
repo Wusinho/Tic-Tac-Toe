@@ -1,19 +1,33 @@
 
-
         
-        arr = ["X","X","X",4,5,6,7,8,9]
-        arr2 = []
+        
+  class WinCondition
+    
+     def win(arr, sim, player)
+    
+      if (arr[0]== sim and arr[1]==sim and arr[2]== sim) || (arr[3]== sim and arr[4]== sim and arr[5]== sim) || (arr[6]== sim and arr[7]== sim and arr[8]== sim)
 
-        #arr[0..2].all? { |a| print "Win " if a == "X" } end
+        puts "\n !!!!!!!!!!!!#{player} wins !!!!!!!!!!! \n".upcase
+ 
+      elsif (arr[0]== sim and arr[3]== sim and arr[6]== sim) || (arr[1]== sim and arr[4]== sim and arr[7]== sim) || (arr[2]== sim and arr[5]== sim and arr[8]== sim)
 
-        win = true
+        puts "\n !!!!!!!!!!!!#{player} wins !!!!!!!!!!! \n".upcase   
 
-        while win
-            
+      elsif (arr[0]== sim and arr[4]== sim and arr[8]== sim) || (arr[2]== sim and arr[4]== sim and arr[6]== sim)
+
+        puts "\n !!!!!!!!!!!!#{player} wins !!!!!!!!!!!".upcase
+          
+
+      else
+
+      end
 
 
-            
-        end
+     end
+
+  end
+
+       
 
         
         
