@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require_relative "../lib/logic"
+#require_relative "../lib/logic"
 
 class InitGame 
     
@@ -36,13 +36,13 @@ class InitGame
                 create_grid(@@grilla)
                 print "It is #{@Player_1} turn Pick a number : "
                 @turn_01 = gets.chomp.to_i
-                @@grilla[@turn_01] = "X"                
+                @@grilla[@turn_01-1] = "X"                
                 move = false
             else
                 create_grid(@@grilla)
                 print "It is #{@Player_2} turn Pick a number : "
                 @turn_02 = gets.chomp.to_i
-                @@grilla[@turn_02] = "O"              
+                @@grilla[@turn_02-1] = "O"              
                 move = true
             end
 
