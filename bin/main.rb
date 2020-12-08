@@ -31,28 +31,35 @@ class InitGame < WinCondition
         
         win_c = WinCondition.new
 
-        
+        #switch = true
         
         while @@grilla != []
+        move = true
             
-        
+            
+            if move == true    
                 create_grid(@@grilla)
                 print "It is #{@Player_1} turn Pick a number : "
 
-                @turn_01 = gets.chomp.to_i
-                @@grilla[@turn_01-1] = "X"      
+                turn_01 = gets.chomp.to_i
+                @@grilla[turn_01-1] = "X"      
 
                 win_c.win(@@grilla, "X", @Player_1 )    
+                move = false
+
+            else            
 
                 create_grid(@@grilla)
                 print "It is #{@Player_2} turn Pick a number : "
 
-                @turn_02 = gets.chomp.to_i
-                @@grilla[@turn_02-1] = "O"   
+                turn_02 = gets.chomp.to_i
+                @@grilla[turn_02-1] = "O"   
 
-                win_c.win(@@grilla, "O", @Player_1 ) 
+                win_c.win(@@grilla, "O", @Player_2 ) 
 
-            print @@grilla    
+                move = true
+            end
+               
                 
         end
     end
