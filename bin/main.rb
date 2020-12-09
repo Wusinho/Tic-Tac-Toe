@@ -25,7 +25,6 @@ class InitGame < WinCondition
     while @player2 == ''
         @player2 = gets.chomp   
     end
-
     move = true
     while @@grilla != []
 
