@@ -5,6 +5,7 @@ require_relative '../lib/logic'
 
 class InitGame < WinCondition
   @@grilla = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
   def create_grid(arr)
     puts "| #{arr[0]} | #{arr[1]} | #{arr[2]} |"
     puts "| #{arr[3]} | #{arr[4]} | #{arr[5]} |"
