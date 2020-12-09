@@ -1,11 +1,10 @@
 #!/usr/bin/env ruby
-# rubocop:disable Style/IdenticalConditionalBranches, Metrics/MethodLength, Style/ClassVars, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Metrics/BlockNesting
+# rubocop:disable Metrics/MethodLength, Style/ClassVars, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Metrics/BlockNesting, Style/IdenticalConditionalBranches
 
 require_relative '../lib/logic'
 
 class InitGame < WinCondition
   @@grilla = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-
   def create_grid(arr)
     puts "| #{arr[0]} | #{arr[1]} | #{arr[2]} |"
     puts "| #{arr[3]} | #{arr[4]} | #{arr[5]} |"
@@ -14,7 +13,6 @@ class InitGame < WinCondition
 
   def dialogo
     win_c = WinCondition.new
-
     puts 'Whats your name?'
     @player1 = gets.chomp
     @player1 = gets.chomp while @player1 == ''
@@ -23,18 +21,16 @@ class InitGame < WinCondition
     @player2 = gets.chomp while @player2 == ''
     move = true
     while @@grilla != []
-
       if move == true
         create_grid(@@grilla)
         print "It is #{@player1} turn Pick a number : "
-
         turn1 = gets.chomp
         if turn1 =~ /^-?[1-9]+$/
           turn1 = turn1.to_i
           turn1 > 10 ? redo : turn1
           @@grilla[turn1 - 1] = 'X'
         else
-          puts 'Please choose a number from 0-9'
+          puts 'Please choose a number from 1-9'
           redo
         end
         win_c.win(@@grilla, 'X', @player1)
@@ -48,17 +44,18 @@ class InitGame < WinCondition
           turn2 > 10 ? redo : turn2
           @@grilla[turn2 - 1] = 'O'
         else
-          puts 'Please choose a number from 0-9'
+          puts 'Please choose a number from 1-9'
           redo
         end
         win_c.win(@@grilla, 'O', @player2)
         move = true
       end
-
     end
+    puts 'Final Board'
+    create_grid(win_c.final_arr)
   end
 end
 game = InitGame.new
 game.dialogo
 
-# rubocop:enable Style/IdenticalConditionalBranches, Metrics/MethodLength, Style/ClassVars, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Metrics/BlockNesting
+# rubocop:enable Metrics/MethodLength, Style/ClassVars, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Metrics/BlockNesting, Style/IdenticalConditionalBranches
