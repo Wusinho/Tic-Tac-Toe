@@ -14,13 +14,14 @@ class InitGame < WinCondition
 
   def dialogo
     win_c = WinCondition.new
-    
+
     puts "INSTRUCTIONS"
     puts "TIC TAC TOE"
     puts "Each player gets a turn"
     puts "Don't try to cheat or you will get penalized"
     puts "You will loose a turn"
     puts 'Whats your name?'
+    
     @player1 = gets.chomp
     @player1 = gets.chomp while @player1 == ''
     puts 'Whats the name of your partner?'
