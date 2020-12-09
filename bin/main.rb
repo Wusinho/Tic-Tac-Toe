@@ -12,29 +12,42 @@ class InitGame < WinCondition
     puts "| #{arr[6]} | #{arr[7]} | #{arr[8]} |"
   end
 
-  def cheat_name
-    if (@player1) == nil
-        @player1 = gets.chomp
+  def cheat_name?(true_name)
+    while true_name == ""
+        puts "Please choose a name"
+        true_name = gets.chomp    
         
     end
+    puts "Hello #{true_name} "
   end
+
+  def cheat_number?(num)
+    
+    while num != 1 or num != 2 or num != 3 or num != 4 or num != 5 or num != 6 or num != 7 or num != 8 or num != 9  
+        
+        puts "Please choose a number between 1 and 9"
+        num = gets.chomp
+        puts num.class
+    end
+    return num
+  end   
 
 
   def dialogo
-    # Input Players
+  win_c = WinCondition.new
+    
+ 
     puts 'Whats your name?'
-    @player1 = gets.chomp
+    players[pla1] = gets.chomp
+    cheat_name?(@player1)
+    
 
-
-
-
-    puts "Hello #{@player1} "
     puts 'Whats the name of your partner?'
-    @player2 = gets.chomp
+    players[pla2] = gets.chomp
+    
+    cheat_name?(@player2)
 
-    puts "Hello #{@player2} "
 
-    win_c = WinCondition.new
 
     # switch = true
     move = true
@@ -43,12 +56,15 @@ class InitGame < WinCondition
 
       if move == true
         create_grid(@@grilla)
-        print "It is #{@player_1} turn Pick a number : "
+        print "It is #{@player1} turn Pick a number : "
 
         turn1 = gets.chomp.to_i
+        puts turn1.class
+        cheat_number?(turn1)
+
         @@grilla[turn1 - 1] = 'X'
 
-        win_c.win(@@grilla, 'X', @player_1)
+        puts win_c.win(@@grilla, 'X', @player1)
         move = false
 
       else
@@ -56,11 +72,14 @@ class InitGame < WinCondition
         create_grid(@@grilla)
         print "It is #{@player2} turn Pick a number : "
 
-        turn2 = gets.chomp.to_i
+        turn2 = gets.chomp
+        
+        cheat_number?(turn2)
+
         @@grilla[turn2 - 1] = 'O'
 
-        win_c.win(@@grilla, 'O', @player2)
-
+        puts win_c.win(@@grilla, 'O', @player2)
+        
         move = true
       end
 
