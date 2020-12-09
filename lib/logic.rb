@@ -25,6 +25,7 @@ class WinCondition
     end
   end
 
+  
   def change_element(item, array, simbol)   
     array.collect! { |element|
       (element == item) ? simbol : element

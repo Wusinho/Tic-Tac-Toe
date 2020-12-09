@@ -14,6 +14,7 @@ class InitGame < WinCondition
 
   def dialogo
     win_c = WinCondition.new
+    
     puts "INSTRUCTIONS"
     puts "TIC TAC TOE"
     puts "Each player gets a turn"
