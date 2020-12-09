@@ -1,8 +1,11 @@
 require_relative "Grid"
 require_relative "Turns"
 
-class InitGame
-   
+class InitGame < Turn
+    attr_accessor 
+    
+
+
 
     def Dialogo
         # Input Players
@@ -25,16 +28,17 @@ class InitGame
         grilla.print_table
 
         # Turns Methods
-
-        turn = Turn.new(@Player_1, @Player_2)
+        turn = Turn.new(@Player_1, @Player_2, turn_P1=gets.chomp, turn_P2=gets.chomp)
         turn.call_turn
         
-        # Condition to win
-        win = Win.new(@Player_1, @Player_2)
-        win.call_winner
-
+    
 
     end
+
+   
+
+
+
 end
 
 game = InitGame.new
