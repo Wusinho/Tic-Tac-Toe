@@ -25,16 +25,11 @@ class WinCondition
     end
   end
 
-  
-
-  def change_element(item, array, simbol)   
-    array.collect! { |element|
-      (element == item) ? simbol : element
-    }
+  def change_element(item, array, simbol)
+    array.collect! do |element|
+      element == item ? simbol : element
+    end
     self
-  end  
-
-
-
+  end
 end
 # rubocop:enable Layout/LineLength, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Metrics/AbcSize
