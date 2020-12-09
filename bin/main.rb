@@ -14,6 +14,11 @@ class InitGame < WinCondition
 
   def dialogo
     win_c = WinCondition.new
+    puts "INSTRUCTIONS"
+    puts "TIC TAC TOE"
+    puts "Each player gets a turn"
+    puts "Don't try to cheat or you will get penalized"
+    puts "You will loose a turn"
     puts 'Whats your name?'
     @player1 = gets.chomp
     @player1 = gets.chomp while @player1 == ''
@@ -29,7 +34,7 @@ class InitGame < WinCondition
         if turn1 =~ /^-?[1-9]+$/
           turn1 = turn1.to_i
           turn1 > 10 ? redo : turn1
-          @@grilla[turn1 - 1] = 'X'
+          win_c.change_element(turn1, @@grilla, "X")
         else
           puts 'Please choose a number from 1-9'
           redo
@@ -43,7 +48,7 @@ class InitGame < WinCondition
         if turn2 =~ /^-?[1-9]+$/
           turn2 = turn2.to_i
           turn2 > 10 ? redo : turn2
-          @@grilla[turn2 - 1] = 'O'
+          win_c.change_element(turn2, @@grilla, "O")
         else
           puts 'Please choose a number from 1-9'
           redo
