@@ -30,12 +30,24 @@ class WinCondition
 
   def change_element(item, array, simbol)
     
+    switch = true
+
+   while switch
+    
+    if array.include?(item)
 
 
-    array.collect! do |element|
-      element == item ? simbol : element
-    end
+      
+    end 
+    
+
+    
+
+
+   end
+
   end
+
 end
 
 # rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Layout/LineLength
