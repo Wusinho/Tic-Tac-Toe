@@ -4,36 +4,26 @@
 require '../lib/logic'
 
 class Turn
-  
   def check_turn(turn)
-
-    switch = true
-    while turn != String 
-      
+    while turn != String
 
       if turn =~ /^-?[1-9]+$/
 
         turn = Integer(turn)
-        puts "Pick a number from 1-9"
         turn = Integer(gets.chomp) while turn > 10
-        
-        puts turn.class
+
         return turn
-        
+
       else
-        puts "Pick a number from 1-9"
+        puts 'Pick a number from 1-9'
 
-        turn = gets.chomp     
-        redo  
+        turn = gets.chomp
+        redo
       end
-      
-       
-    end 
 
+    end
   end
 end
-
-
 
 class Dialogue
   @@grilla = [1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -54,22 +44,22 @@ class Dialogue
 
   puts 'Whats the name of your partner?'
   @player2_name = gets.chomp
-  @player2_name = gets.chomp while @player2_name == '' 
+  @player2_name = gets.chomp while @player2_name == ''
 
   while grilla_close != []
     if posible_move == true
       print win_c.create_grid(@@grilla)
       print "It is #{@player1_name} turn Pick a number from 1-9 : "
       @player1_turn = gets.chomp
-     
-      win_c.change_element( check.check_turn(@player1_turn), @@grilla, 'X')
+
+      win_c.change_element(check.check_turn(@player1_turn), @@grilla, 'X')
       win_c.win(grilla_close, @@grilla, 'X', @player1_name)
       posible_move = false
     else
       print win_c.create_grid(@@grilla)
       print "It is #{@player2_name} turn Pick a number from 1-9 : "
       @player2_turn = gets.chomp
-  
+
       win_c.change_element(check.check_turn(@player2_turn), @@grilla, 'O')
       win_c.win(grilla_close, @@grilla, 'O', @player2_name)
       posible_move = true

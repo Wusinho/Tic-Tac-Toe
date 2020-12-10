@@ -23,9 +23,9 @@ class WinCondition
       return '!!!!!!!!!!!!!!!!!!!YOU WIN!!!!!!!!!!!!!!!!!!!'
     elsif arr.count { |a| a == 'X' } == 5
       lock.clear
-      return 'DRAW'
+      return "IT'S A DRAW"
     end
-    '!!!!!!!!!!!!!!!!!!!YOU WIN!!!!!!!!!!!!!!!!!!!'
+    '!!!!!!!!!!!!!!!!!!!IT IS A DRAW!!!!!!!!!!!!!!!!!!!'
   end
 
   def change_element(item, array, simbol)
