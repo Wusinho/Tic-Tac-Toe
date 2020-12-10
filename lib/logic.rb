@@ -1,8 +1,6 @@
 
 #require '../bin/main'
 
-
-
 class WinCondition
  
   def win(lock, arr, sim, player)
