@@ -65,6 +65,7 @@ class Dialogue
       win_c.change_element( check.check_turn(@player1_turn), @@grilla, 'X')
       win_c.win(grilla_close, @@grilla, 'X', @player1_name)
       posible_move = false
+      
     else
       print win_c.create_grid(@@grilla)
       print "It is #{@player2_name} turn Pick a number from 1-9 : "
