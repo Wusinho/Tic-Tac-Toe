@@ -14,40 +14,38 @@ class Dialogue
   ################################# NEW #####################
   font = TTY::Font.new(:starwars)
   puts "\n"
-  puts Rainbow(font.write('Tik-Tak-Toe', letter_spacing: 3)).red.bright
-  puts (Rainbow('CUTE EDITION').blueviolet.bright.blink.bg(:yellow)).center(702)
+  puts Rainbow(font.write('Tik-Tak-Toe')).red.bright
+  puts (Rainbow('CUTE EDITION').blueviolet.bright.blink.bg(:yellow)).center(50)
   puts "\n"
-  puts (Rainbow("Let's start").blue).center(150)
+  puts Rainbow('  Instructions  '.center(50, '*')).green
   puts "\n"
-  print win_c.create_grid(@@grilla)
-
-  puts "#{Rainbow('this is red').red} and #{Rainbow('this on yellow bg').red.bg(:yellow)} and #{Rainbow('even bright underlined!').red.underline.bright}"
-  puts 'Each player gets a turn'
-  puts "Don't try to cheat or you will get penalized"
-  puts 'You will loose a turn'
-
-  puts 'Whats your name'
+  puts Rainbow("This is the board of the game.".center(10)).cyan
+  print Rainbow(win_c.create_grid(@@grilla)).yellow
+  puts Rainbow("Each square has an index number from 1 to 9.\n\nWrite the number where you want to place your move.".center(10)).cyan
+  puts "\n"
+  puts Rainbow('*'.center(50, '*')).green
+  puts (Rainbow("Let's start\n").blue.blink).center(65)
+  puts Rainbow("What's the name of player #1?").darkcyan
   @playe1_name = gets.chomp
   @playe1_name = gets.chomp while @playe1_name == ''
-
-  puts 'Whats the name of your partner?'
+  puts "\n"
+  puts Rainbow("What's the name of player #2?").chocolate
   @playe2_name = gets.chomp
   @playe2_name = gets.chomp while @playe2_name == ''
-
   posible_move = true
   while grilla_close != []
     if posible_move == true
       print win_c.create_grid(@@grilla)
-      print "It is #{@playe1_name} turn Pick a number : "
+      print Rainbow("It is #{@playe1_name} turn's make your move: ").darkcyan
       @playe1_turn = gets.chomp.to_i
-      win_c.change_element(@playe1_turn, @@grilla, 'X')
+      win_c.change_element(@playe1_turn, @@grilla, Rainbow('X').darkred.bright)
       win_c.win(grilla_close, @@grilla, 'X', @playe1_name)
       posible_move = false
     else
       print win_c.create_grid(@@grilla)
-      print "It is #{@playe2_name} turn Pick a number : "
+      print Rainbow("It is #{@playe2_name} turn Pick a number : ").chocolate
       @playe2_turn = gets.chomp.to_i
-      win_c.change_element(@playe2_turn, @@grilla, 'O')
+      win_c.change_element(@playe2_turn, @@grilla, Rainbow('O').darkblue.bright)
       win_c.win(grilla_close, @@grilla, 'O', @playe2_name)
       posible_move = true
     end
