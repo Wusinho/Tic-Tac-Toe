@@ -3,16 +3,10 @@
 
 require '../lib/logic'
 
-  grilla = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+class Dialogue
+
+  @@grilla = [1, 2, 3, 4, 5, 6, 7, 8, 9]
   grilla_close = [0]
-
-  def create_grid(arr)
-    puts "| #{arr[0]} | #{arr[1]} | #{arr[2]} |"
-    puts "| #{arr[3]} | #{arr[4]} | #{arr[5]} |"
-    puts "| #{arr[6]} | #{arr[7]} | #{arr[8]} |"
-  end
-
-  
 
     win_c = WinCondition.new
     
@@ -24,12 +18,27 @@ require '../lib/logic'
     @name2 = gets.chomp
     @name2 = gets.chomp while @name2 == ''
 
-    win_c.logic(grilla_close, grilla, @name1, @name2)  
   
-
-
-  
-
-
+    posible_move = true
+    while grilla_close != []
+      if posible_move == true
+        win_c.create_grid(@@grilla)
+        print "It is #{@name1} turn Pick a number : "
+        turn1 = gets.chomp.to_i
+        win_c.change_element(turn1, @@grilla, 'X')
+        win_c.win(grilla_close, @@grilla, 'X', @name1)
+        posible_move = false
+      else
+        win_c.create_grid(@@grilla)
+        print "It is #{@name2} turn Pick a number : "
+        turn2 = gets.chomp.to_i
+        win_c.change_element(turn2, @@grilla, 'O')
+        win_c.win(grilla_close, @@grilla, 'O', @name2)
+        posible_move = true
+      end
+    end
+    win_c.create_grid(@@grilla)
+  end
+dialogo = Dialogue.new
 
 # rubocop:enable Metrics/MethodLength, Style/ClassVars, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Metrics/BlockNesting, Style/IdenticalConditionalBranches
