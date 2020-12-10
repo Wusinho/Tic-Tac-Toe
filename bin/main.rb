@@ -38,6 +38,8 @@ class Dialogue
       end
     end
     win_c.create_grid(@@grilla)
+    puts win_c.win(grilla_close, @@grilla, 'O')
+
   end
 dialogo = Dialogue.new
 
