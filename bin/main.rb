@@ -15,33 +15,33 @@ class Dialogue
   puts 'You will loose a turn'
 
   puts 'Whats your name'
-  @name1 = gets.chomp
-  @name1 = gets.chomp while @name1 == ''
+  @playe1_name = gets.chomp
+  @playe1_name = gets.chomp while @playe1_name == ''
 
   puts 'Whats the name of your partner?'
-  @name2 = gets.chomp
-  @name2 = gets.chomp while @name2 == ''
+  @playe2_name = gets.chomp
+  @playe2_name = gets.chomp while @playe2_name == ''
 
   posible_move = true
   while grilla_close != []
     if posible_move == true
-      win_c.create_grid(@@grilla)
-      print "It is #{@name1} turn Pick a number : "
-      turn1 = gets.chomp.to_i
-      win_c.change_element(turn1, @@grilla, 'X')
-      win_c.win(grilla_close, @@grilla, 'X', @name1)
+      print win_c.create_grid(@@grilla)
+      print "It is #{@playe1_name} turn Pick a number : "
+      @playe1_turn = gets.chomp.to_i
+      win_c.change_element(@playe1_turn, @@grilla, 'X')
+      win_c.win(grilla_close, @@grilla, 'X', @playe1_name)
       posible_move = false
     else
-      win_c.create_grid(@@grilla)
-      print "It is #{@name2} turn Pick a number : "
-      turn2 = gets.chomp.to_i
-      win_c.change_element(turn2, @@grilla, 'O')
-      win_c.win(grilla_close, @@grilla, 'O', @name2)
+      print win_c.create_grid(@@grilla)
+      print "It is #{@playe2_name} turn Pick a number : "
+      @playe2_turn = gets.chomp.to_i
+      win_c.change_element(@playe2_turn, @@grilla, 'O')
+      win_c.win(grilla_close, @@grilla, 'O', @playe2_name)
       posible_move = true
     end
   end
-  win_c.create_grid(@@grilla)
-  puts win_c.win(grilla_close, @@grilla, 'O')
+  puts win_c.create_grid(@@grilla)
+  puts win_c.win(grilla_close, @@grilla, 'X')
 end
 
 # rubocop:enable Style/ClassVars, Style/IdenticalConditionalBranches
