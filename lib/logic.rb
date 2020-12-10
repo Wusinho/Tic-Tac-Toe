@@ -1,24 +1,45 @@
-# rubocop:disable Layout/LineLength, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Metrics/AbcSize
+# require '../bin/main'
+# rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Layout/LineLength
 class WinCondition
-  def win(arr, sim, player)
-    if (arr[0] == sim and arr[1] == sim and arr[2] == sim) || (arr[3] == sim and arr[4] == sim and arr[5] == sim) || (arr[6] == sim and arr[7] == sim and arr[8] == sim)
+  def create_grid(arr)
+    <<-HEREDOC
+    
+    | #{arr[0]} | #{arr[1]} | #{arr[2]} |
+    | #{arr[3]} | #{arr[4]} | #{arr[5]} |
+    | #{arr[6]} | #{arr[7]} | #{arr[8]} |
+    
+    HEREDOC
+  end
 
-      puts "\n !!!!!!!!!!!!#{player} wins !!!!!!!!!!! \n".upcase
-      arr.clear
+  def win(lock, arr, sim , _player = nil)
+    if (arr[0] == sim and arr[1] == sim and arr[2] == sim) || (arr[3] == sim and arr[4] == sim and arr[5] == sim) || (arr[6] == sim and arr[7] == sim and arr[8] == sim)
+      lock.clear
+
+      return '!!!!!!!!!!!!!!!!!!!YOU WIN!!!!!!!!!!!!!!!!!!!'
 
     elsif (arr[0] == sim and arr[3] == sim and arr[6] == sim) || (arr[1] == sim and arr[4] == sim and arr[7] == sim) || (arr[2] == sim and arr[5] == sim and arr[8] == sim)
+      lock.clear
 
-      puts "\n !!!!!!!!!!!!#{player} wins !!!!!!!!!!! \n".upcase
-      arr.clear
+      return '!!!!!!!!!!!!!!!!!!!YOU WIN!!!!!!!!!!!!!!!!!!!'
 
     elsif (arr[0] == sim and arr[4] == sim and arr[8] == sim) || (arr[2] == sim and arr[4] == sim and arr[6] == sim)
+      lock.clear
 
-      puts "\n !!!!!!!!!!!!#{player} wins !!!!!!!!!!!".upcase
-      arr.clear
+      return '!!!!!!!!!!!!!!!!!!!YOU WIN!!!!!!!!!!!!!!!!!!!'
 
+    elsif arr.count { |a| a == 'X' } == 5
+      lock.clear
+
+      return 'DRAW'
     end
+    '!!!!!!!!!!!!!!!!!!!YOU WIN!!!!!!!!!!!!!!!!!!!'
+  end
 
-    arr
+  def change_element(item, array, simbol)
+    array.collect! do |element|
+      element == item ? simbol : element
+    end
+    self
   end
 end
-# rubocop:enable Layout/LineLength, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Metrics/AbcSize
+# rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Layout/LineLength

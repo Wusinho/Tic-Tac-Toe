@@ -1,79 +1,47 @@
 #!/usr/bin/env ruby
-puts 'Hello world!'
-require_relative "Grid"
+# rubocop:disable Style/ClassVars, Style/IdenticalConditionalBranches
 
-class InitGame < Grid
-    
-    def initialize(name1 = 'pepeBOT', name2 = 'raulBOT')
-        @turnA = name1
-        @turnB = name2
-     end
-   
-     @@grilla = [1,2,3,4,5,6,7,8,9]
-     
-     def create_grid(arr)
+require '../lib/logic'
 
-       puts "| #{arr[0]} | #{arr[1]} | #{arr[2]} |"
-       
-       puts "| #{arr[3]} | #{arr[4]} | #{arr[5]} |"
-       
-       puts "| #{arr[6]} | #{arr[7]} | #{arr[8]} |"
-     end
+class Dialogue
+  @@grilla = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+  grilla_close = [0]
 
+  win_c = WinCondition.new
 
-    def Dialogo
-       # Input Players
-       puts 'Whats your name?'
-       @Player_1 = gets.chomp
+  puts "Welcome to TIC-TAC-TOE"
+  puts 'Each player gets a turn'
+  puts "Don't try to cheat or you will get penalized"
+  puts "You will loose a turn"
 
-       puts "Hello #{@Player_1} "
-       puts 'Whats the name of your partner?'
-       @Player_2 = gets.chomp
+  puts 'Whats your name'
+  @name1 = gets.chomp
+  @name1 = gets.chomp while @name1 == ''
 
-       puts "Hello #{@Player_2} "
-        
-        switch = true
-        move = true
-        while switch
-            if move == true
-                create_grid(@@grilla)
+  puts 'Whats the name of your partner?'
+  @name2 = gets.chomp
+  @name2 = gets.chomp while @name2 == ''
 
-                print "It is #{@Player_1} turn Pick a number : "
-                @turn_01 = gets.chomp.to_i
-                @@grilla[@turn_01] = "X"
-                
-
-                move = false
-                
-
-            else
-                create_grid(@@grilla)
-                print "It is #{@Player_2} turn Pick a number : "
-
-                @turn_02 = gets.chomp.to_i
-                @@grilla[@turn_02] = "O"
-
-                
-                move = true
-            end
-
-        end
-
-
-
-
-
+  posible_move = true
+  while grilla_close != []
+    if posible_move == true
+      win_c.create_grid(@@grilla)
+      print "It is #{@name1} turn Pick a number : "
+      turn1 = gets.chomp.to_i
+      win_c.change_element(turn1, @@grilla, 'X')
+      win_c.win(grilla_close, @@grilla, 'X', @name1)
+      posible_move = false
+    else
+      win_c.create_grid(@@grilla)
+      print "It is #{@name2} turn Pick a number : "
+      turn2 = gets.chomp.to_i
+      win_c.change_element(turn2, @@grilla, 'O')
+      win_c.win(grilla_close, @@grilla, 'O', @name2)
+      posible_move = true
     end
-
-  
-  
-
-
+  end
+  win_c.create_grid(@@grilla)
+  puts win_c.win(grilla_close, @@grilla, 'O')
 end
 
-game = InitGame.new
-game.Dialogo
-#game.change_element(4)
-#game.change_element(5)
-#game.change_element(6)
-
+# rubocop:enable Style/ClassVars, Style/IdenticalConditionalBranches
