@@ -22,14 +22,14 @@ class Dialogue
     posible_move = true
     while grilla_close != []
       if posible_move == true
-        win_c.create_grid(@@grilla)
+        print win_c.create_grid(@@grilla)
         print "It is #{@name1} turn Pick a number : "
         turn1 = gets.chomp.to_i
         win_c.change_element(turn1, @@grilla, 'X')
         win_c.win(grilla_close, @@grilla, 'X', @name1)
         posible_move = false
       else
-        win_c.create_grid(@@grilla)
+        print win_c.create_grid(@@grilla)
         print "It is #{@name2} turn Pick a number : "
         turn2 = gets.chomp.to_i
         win_c.change_element(turn2, @@grilla, 'O')
@@ -37,7 +37,7 @@ class Dialogue
         posible_move = true
       end
     end
-    win_c.create_grid(@@grilla)
+    print win_c.create_grid(@@grilla)
     puts win_c.win(grilla_close, @@grilla, 'O')
 
   end
