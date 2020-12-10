@@ -5,9 +5,13 @@ class WinCondition
  
 
   def create_grid(arr)
-    puts "| #{arr[0]} | #{arr[1]} | #{arr[2]} |"
-    puts "| #{arr[3]} | #{arr[4]} | #{arr[5]} |"
-    puts "| #{arr[6]} | #{arr[7]} | #{arr[8]} |"
+    <<-HEREDOC
+    
+    | #{arr[0]} | #{arr[1]} | #{arr[2]} |
+    | #{arr[3]} | #{arr[4]} | #{arr[5]} |
+    | #{arr[6]} | #{arr[7]} | #{arr[8]} |
+    
+    HEREDOC
   end
 
   def win(lock, arr, sim, player=nil)
@@ -46,6 +50,8 @@ class WinCondition
 end
 
 
+#win = WinCondition.new
+#print win.create_grid([1, 2, 3, 4, 5, 6, 7, 8, 9])
 
 
 
