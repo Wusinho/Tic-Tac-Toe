@@ -36,14 +36,14 @@ class Dialogue
   while grilla_close != []
     if posible_move == true
       print win_c.create_grid(@@grilla)
-      print Rainbow("It is #{@playe1_name} turn's make your move: ").darkcyan
+      print Rainbow("It's #{@playe1_name}'s turn, make your move: ").darkcyan
       @playe1_turn = gets.chomp.to_i
       win_c.change_element(@playe1_turn, @@grilla, Rainbow('X').darkred.bright)
       win_c.win(grilla_close, @@grilla, 'X', @playe1_name)
       posible_move = false
     else
       print win_c.create_grid(@@grilla)
-      print Rainbow("It is #{@playe2_name} turn Pick a number : ").chocolate
+      print Rainbow("It's #{@playe2_name}'s turn pick a number : ").chocolate
       @playe2_turn = gets.chomp.to_i
       win_c.change_element(@playe2_turn, @@grilla, Rainbow('O').darkblue.bright)
       win_c.win(grilla_close, @@grilla, 'O', @playe2_name)
