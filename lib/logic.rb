@@ -1,5 +1,5 @@
 # require '../bin/main'
-# rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Layout/LineLength
+# rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Layout/LineLength, Lint/LiteralInInterpolation
 class WinCondition
   def create_grid(arr)
     <<~HEREDOC
@@ -35,4 +35,4 @@ class WinCondition
   end
 end
 
-# rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Layout/LineLength
+# rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Layout/LineLength, Lint/LiteralInInterpolation
