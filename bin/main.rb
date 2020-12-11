@@ -18,8 +18,14 @@ class Dialogue
     }
   
   @grilla = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-  @grid = WinCondition.new
+  @checkout = [1]
+  @game = true
+
+
+  @board = Board.new
   @check = ChangeNumbers.new
+  @win = WinCondition.new
+  @draw = DrawCondition.new
   
       puts "Please type a name? else will be #{@player1[:name]}"
       @player1[:name] = gets.chomp
@@ -30,15 +36,14 @@ class Dialogue
       @player2[:name] = gets.chomp while @player2[:name] == ''
 
 
-      puts @grid.create_grid(@grilla)
+      puts @board.board_game(@grilla)
 
      
 
 
 def self.play
-  game = true
   @turn_count = 0
-  while game
+  while @checkout != []
     @turn_count += 1
     turns
   end
@@ -53,7 +58,13 @@ end
       @current_player[:number] = gets.chomp.to_i
       if @grilla.include?(@current_player[:number])
         @check.number_change(@current_player[:number], @grilla, @current_player[:simbol])
-        puts @grid.create_grid(@grilla)
+        puts @board.board_game(@grilla)
+
+
+        @win.win(@grilla, @current_player[:name], @current_player[:simbol], @checkout)
+        
+        @draw.draw(@grilla, @current_player[:name], @current_player[:simbol], @checkout)
+        
       else
         puts "Please choose a valid input"
         turns   
@@ -63,6 +74,13 @@ end
   play
       
   turns
+
+  puts @board.board_game(@grilla)
+  puts  @win.win(@grilla, @current_player[:name], @current_player[:simbol], @checkout)
+  puts @draw.draw(@grilla, @current_player[:name], @current_player[:simbol], @checkout)
+
+  
+  
 
 end
 
