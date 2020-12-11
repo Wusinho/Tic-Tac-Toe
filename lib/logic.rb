@@ -1,5 +1,5 @@
 # require '../bin/main'
-
+# rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Layout/LineLength, Lint/LiteralInInterpolation
 class WinCondition
   def create_grid(arr)
     <<~HEREDOC
@@ -20,11 +20,13 @@ class WinCondition
       return '!!!!!!!!!!!!!!!!!!!YOU WIN!!!!!!!!!!!!!!!!!!!'
     elsif (arr[0] == sim and arr[4] == sim and arr[8] == sim) || (arr[2] == sim and arr[4] == sim and arr[6] == sim)
       lock.clear
-      return '!!!!!!!!!!!!!!!!!!!YOU WIN!!!!!!!!!!!!!!!!!!!!'
+      return '!!!!!!!!!!!!!!!!!!!YOU WIN!!!!!!!!!!!!!!!!!!!'
     elsif arr.count { |a| a == 'X' } == 5
       lock.clear
       return "IT'S A DRAW"
     end
-    '!!!!!!!!!!!!!!!!!!!IT IS A DRAW!!!!!!!!!!!!!!!!!!!!'
+    '!!!!!!!!!!!!!!!!!!!IT IS A DRAW!!!!!!!!!!!!!!!!!!!'
   end
 end
+
+# rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Layout/LineLength
