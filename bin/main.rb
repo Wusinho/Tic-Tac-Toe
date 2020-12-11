@@ -21,7 +21,7 @@ class Dialogue
       end
     else
       puts "#{@player1_name} pick a number between 1-9 diffrente than #{item} "
-      check_turnX
+      check_turnx
     end
   end
 
@@ -33,7 +33,7 @@ class Dialogue
       end
     else
       puts "#{@player2_name} pick a number between 1-9 diffrente than #{item} "
-      check_turnO
+      check_turno
     end
   end
 
