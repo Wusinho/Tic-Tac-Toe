@@ -18,10 +18,9 @@ class Dialogue
     }
   
   @grilla = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-  @checkout = [1]
-  @game = true
-
-
+  @checkout = ["este es un array para vacear"]
+  
+  puts @checkout
   @board = Board.new
   @check = ChangeNumbers.new
   @win = WinCondition.new
@@ -38,49 +37,55 @@ class Dialogue
 
       puts @board.board_game(@grilla)
 
-     
-
-
-def self.play
-  @turn_count = 0
-  while @checkout != []
-    @turn_count += 1
-    turns
-  end
-
-  
-end
-
-
   def self.turns
+    @turn_count = 0
+
+    while @checkout != []
+      @turn_count += 1
+     
     @current_player = @turn_count.odd? ? @player1 : @player2
-    print "#{@current_player[:name]}, Please choose a number between 1-9: "     
+    print "#{@current_player[:name]}, Please choose a number between 1-9: "  
+      
+
       @current_player[:number] = gets.chomp.to_i
+      
+
       if @grilla.include?(@current_player[:number])
+        
+
         @check.number_change(@current_player[:number], @grilla, @current_player[:simbol])
         puts @board.board_game(@grilla)
 
-
+        
         @win.win(@grilla, @current_player[:name], @current_player[:simbol], @checkout)
         
         @draw.draw(@grilla, @current_player[:name], @current_player[:simbol], @checkout)
+
+        if @checkout == []
         
+        else
+
+        
+
+        end
+
       else
-        puts "Please choose a valid input"
+      
         turns   
       end
+      
+
+    end
   end
 
-  play
+
+ 
       
   turns
 
-  puts @board.board_game(@grilla)
+  
   puts  @win.win(@grilla, @current_player[:name], @current_player[:simbol], @checkout)
   puts @draw.draw(@grilla, @current_player[:name], @current_player[:simbol], @checkout)
-
-  
-  
 
 end
 
