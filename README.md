@@ -5,7 +5,7 @@ Common definition of Tic-Tac-Toe
 
 > "Paper-and-pencil game for two players, X and O, who take turns marking the spaces in a 3×3 grid. The player who succeeds in placing three of their marks in a horizontal, vertical, or diagonal row is the winner."
 
-![screenshot](./assets/code.jpeg)
+![screenshot](./assets/tictactoe.jpeg)
 
 The main goal is to put into practice the main concepts of Object-Oriented Programming. Particularly, classes and access to their attributes.
 
@@ -36,13 +36,11 @@ The code:
 
 ### Game's instructions
 <ul>
-  <li>
-    Tic-Tac-Toe is a two players game.
-    Follow the instructions on the screen to input the names of the players
-    Each player has to select a number on the board between 1 to 9
-    If you select a number outside the range or a position is already taken, you will need to select again.
-    If there's a winner or there aren't any possible movements, the match ends.
-  </li>
+ <li>Tic-Tac-Toe is a two players game.</li>
+ <li>Follow the instructions on the screen to input the names of the players</li>
+ <li>Each player has to select a number on the board between 1 to 9</li>
+ <li>If you select a number outside the range or a position is already taken, you will need to select again.</li>
+ <li>If there's a winner or there aren't any possible movements, the match ends.</li>
 </ul>
 
 ### Authors
