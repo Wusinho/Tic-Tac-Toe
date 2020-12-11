@@ -32,40 +32,31 @@ class WinCondition
 end
 
 class Loop
-  def initialize(x, y)
-    @x = x
-    @y = y
-
-    
-  end
  
-  def turns
-    
-    for i in 1..9 do
-     puts i
-     if i.odd?
+ 
+  def turns(player1, player2)
+    count = 0
+    while count < 10
+      count += 1
+      if count.odd?
+        puts count
+        player1
+
+      else
+        puts count
+
+        player2
+
+      end
 
 
-      @x
-     else
+
       
-
-      @y
-
-     end
+    
     end
     
   end
 
-
-
-  def player1(name)
-    
-  end
-
-  def player2(name)
-    
-  end
 
 
 

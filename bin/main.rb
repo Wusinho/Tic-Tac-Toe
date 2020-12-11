@@ -22,27 +22,22 @@ class Dialogue
  
 
 
+sim_c = Loop.new
   
   
 
- 
     
 def self.user_input(player)
 
     puts "Please type a name? else will be #{player[:name]}"
     player[:name] = gets.chomp
     #player[:name] = gets.chomp while @player[:name] == ''
-
-  
-    
+    return player[:name]
 end
-sim_c = Loop.new(user_input(player1),   user_input(player2))
+
+sim_c.turns(user_input(player1), user_input(player2))
 
 
-
-
-
-  
 end
 
 # rubocop:enable Style/IdenticalConditionalBranches
