@@ -20,7 +20,7 @@ class Dialogue
         element == item ? 'X' : element
       end
     else
-      puts "#{@player1_name} pick a number betwen 1-9 diffrente than #{item} "
+      puts "#{@player1_name} pick a number between 1-9 diffrente than #{item} "
       check_turnX
     end
   end
@@ -32,7 +32,7 @@ class Dialogue
         element == item ? '-' : element
       end
     else
-      puts "#{@player2_name} pick a number betwen 1-9 diffrente than #{item} "
+      puts "#{@player2_name} pick a number between 1-9 diffrente than #{item} "
       check_turnO
     end
   end
