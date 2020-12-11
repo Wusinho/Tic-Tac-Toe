@@ -1,8 +1,10 @@
 
 # require '../bin/main'
 # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Layout/LineLength, Lint/LiteralInInterpolation
-class WinCondition
-  def create_grid(arr)
+  
+
+class Board
+  def board_game(arr)
     <<~HEREDOC
       #{'    '}
           | #{arr[0]} | #{arr[1]} | #{arr[2]} |
@@ -11,28 +13,43 @@ class WinCondition
       #{'    '}
     HEREDOC
   end
-
-  def win(lock, arr, sim, _player = nil)
-    if (arr[0] == sim and arr[1] == sim and arr[2] == sim) || (arr[3] == sim and arr[4] == sim and arr[5] == sim) || (arr[6] == sim and arr[7] == sim and arr[8] == sim)
-      lock.clear
-      return '!!!!!!!!!!!!!!!!!!!YOU WIN!!!!!!!!!!!!!!!!!!!'
-    elsif (arr[0] == sim and arr[3] == sim and arr[6] == sim) || (arr[1] == sim and arr[4] == sim and arr[7] == sim) || (arr[2] == sim and arr[5] == sim and arr[8] == sim)
-      lock.clear
-      return '!!!!!!!!!!!!!!!!!!!YOU WIN!!!!!!!!!!!!!!!!!!!'
-    elsif (arr[0] == sim and arr[4] == sim and arr[8] == sim) || (arr[2] == sim and arr[4] == sim and arr[6] == sim)
-      lock.clear
-      return '!!!!!!!!!!!!!!!!!!!YOU WIN!!!!!!!!!!!!!!!!!!!'
-    end
-
-  def draw
-     arr.count { |a| a == 'X' } == 5
-      lock.clear
-      return "IT'S A DRAW"
-    
-    '!!!!!!!!!!!!!!!!!!!IT IS A DRAW!!!!!!!!!!!!!!!!!!!'
-  end
-
 end
+
+
+class WinCondition
+
+  def win(arr, player, sim, checkout)
+    if (arr[0] == sim and arr[1] == sim and arr[2] == sim) || (arr[3] == sim and arr[4] == sim and arr[5] == sim) || (arr[6] == sim and arr[7] == sim and arr[8] == sim)
+      checkout.clear
+      
+      return "#{player} WINS"
+    elsif (arr[0] == sim and arr[3] == sim and arr[6] == sim) || (arr[1] == sim and arr[4] == sim and arr[7] == sim) || (arr[2] == sim and arr[5] == sim and arr[8] == sim)
+      checkout.clear
+      return "#{player} WINS"
+
+    elsif (arr[0] == sim and arr[4] == sim and arr[8] == sim) || (arr[2] == sim and arr[4] == sim and arr[6] == sim)
+      checkout.clear
+      return "#{player} WINS"
+
+      
+    else
+    end
+  end 
+end
+
+class DrawCondition
+  def draw(arr, sim, player, checkout)
+    if arr.count { |a| a == 'X' } == 5   
+    checkout.clear
+     return "IT'S A DRAW"
+
+    end
+ end
+end
+
+  
+
+
 
 class ChangeNumbers
  
