@@ -58,7 +58,7 @@ class ChangeNumbers
         element == item ? sim : element
       end
     end 
-
+end
 
 #turno = Loop.new
 #turno.turns('Pedro', 'ablo')
