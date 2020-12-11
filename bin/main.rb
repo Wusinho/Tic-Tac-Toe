@@ -1,42 +1,36 @@
 #!/usr/bin/env ruby
-# rubocop:disable Style/IdenticalConditionalBranches
+# rubocop:disable Style/ClassVars, Style/IdenticalConditionalBranches
 
-require_relative '../lib/logic'
+require '../lib/logic'
+
+class Turn
+  def check_turn(turn)
+    while turn != String
+
+      if turn =~ /^-?[1-9]+$/
+
+        turn = Integer(turn)
+        turn = Integer(gets.chomp) while turn > 10
+
+        return turn
+
+      else
+        puts 'Pick a number from 1-9'
+
+        turn = gets.chomp
+        redo
+      end
+
+    end
+  end
+end
 
 class Dialogue
-  def initialize
-    @player1_name = name1
-    @player2_name = name2
-  end
-
-  @grilla = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+  @@grilla = [1, 2, 3, 4, 5, 6, 7, 8, 9]
   grilla_close = [0]
   posible_move = true
 
-  def self.check_turnx
-    item = gets.chomp.to_i
-    if @grilla.include?(item)
-      @grilla.collect! do |element|
-        element == item ? 'X' : element
-      end
-    else
-      puts "#{@player1_name} pick a number between 1-9 diffrente than #{item} "
-      check_turnX
-    end
-  end
-
-  def self.check_turno
-    item = gets.chomp.to_i
-    if @grilla.include?(item)
-      @grilla.collect! do |element|
-        element == item ? '-' : element
-      end
-    else
-      puts "#{@player2_name} pick a number between 1-9 diffrente than #{item} "
-      check_turnO
-    end
-  end
-
+  check = Turn.new
   win_c = WinCondition.new
 
   puts 'Welcome to TIC-TAC-TOE'
@@ -54,27 +48,25 @@ class Dialogue
 
   while grilla_close != []
     if posible_move == true
-      print win_c.create_grid(@grilla)
+      print win_c.create_grid(@@grilla)
       print "It is #{@player1_name} turn Pick a number from 1-9 : "
+      @player1_turn = gets.chomp
 
-      check_turnx
-
-      win_c.win(grilla_close, @grilla, 'X', @player2_name)
-
+      win_c.change_element(check.check_turn(@player1_turn), @@grilla, 'X')
+      win_c.win(grilla_close, @@grilla, 'X', @player1_name)
       posible_move = false
-
     else
-      print win_c.create_grid(@grilla)
+      print win_c.create_grid(@@grilla)
       print "It is #{@player2_name} turn Pick a number from 1-9 : "
+      @player2_turn = gets.chomp
 
-      check_turno
-
-      win_c.win(grilla_close, @grilla, '-', @player2_name)
+      win_c.change_element(check.check_turn(@player2_turn), @@grilla, 'O')
+      win_c.win(grilla_close, @@grilla, 'O', @player2_name)
       posible_move = true
     end
   end
-  puts win_c.create_grid(@grilla)
-  puts win_c.win(grilla_close, @grilla, 'X')
+  puts win_c.create_grid(@@grilla)
+  puts win_c.win(grilla_close, @@grilla, 'X')
 end
 
-# rubocop:enable Style/IdenticalConditionalBranches
+# rubocop:enable Style/ClassVars, Style/IdenticalConditionalBranches

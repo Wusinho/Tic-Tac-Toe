@@ -1,5 +1,5 @@
 # require '../bin/main'
-# rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Layout/LineLength, Lint/LiteralInInterpolation
+# rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Layout/LineLength
 class WinCondition
   def create_grid(arr)
     <<~HEREDOC
@@ -26,6 +26,12 @@ class WinCondition
       return "IT'S A DRAW"
     end
     '!!!!!!!!!!!!!!!!!!!IT IS A DRAW!!!!!!!!!!!!!!!!!!!'
+  end
+
+  def change_element(item, array, simbol)
+    array.collect! do |element|
+      element == item ? simbol : element
+    end
   end
 end
 
