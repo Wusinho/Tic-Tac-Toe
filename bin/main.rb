@@ -13,7 +13,7 @@ class Dialogue
   grilla_close = [0]
   posible_move = true
 
-  def self.check_turnX
+  def self.check_turnx
     item = gets.chomp.to_i
     if @grilla.include?(item)
       @grilla.collect! do |element|
@@ -25,7 +25,7 @@ class Dialogue
     end
   end
 
-  def self.check_turnO
+  def self.check_turno
     item = gets.chomp.to_i
     if @grilla.include?(item)
       @grilla.collect! do |element|
@@ -57,7 +57,7 @@ class Dialogue
       print win_c.create_grid(@grilla)
       print "It is #{@player1_name} turn Pick a number from 1-9 : "
 
-      check_turnX
+      check_turnx
 
       win_c.win(grilla_close, @grilla, 'X', @player2_name)
 
@@ -67,7 +67,7 @@ class Dialogue
       print win_c.create_grid(@grilla)
       print "It is #{@player2_name} turn Pick a number from 1-9 : "
 
-      check_turnO
+      check_turno
 
       win_c.win(grilla_close, @grilla, '-', @player2_name)
       posible_move = true
