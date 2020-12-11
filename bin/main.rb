@@ -15,7 +15,7 @@ class Dialogue
   font = TTY::Font.new(:starwars)
   puts "\n"
   puts Rainbow(font.write('Tik-Tak-Toe')).red.bright
-  puts (Rainbow('CUTE EDITION').blueviolet.bright.blink.bg(:yellow)).center(50)
+  puts (Rainbow('COLOR EDITION').blueviolet.bright.blink.bg(:yellow)).center(50)
   puts "\n"
   puts Rainbow('  Instructions  '.center(50, '*')).green
   puts "\n"
