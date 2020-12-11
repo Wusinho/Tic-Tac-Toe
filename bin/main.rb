@@ -3,76 +3,67 @@
 
 require_relative '../lib/logic'
 
-class Dialogue
-  def initialize
-    @player1_name = name1
-    @player2_name = name2
-  end
+class Dialogue 
 
-  def self.get_input
-      @item = gets.chomp.to_i 
-  end
-
+    @player1 = {
+      :name => 'botPaco',
+      :simbol => 'X',
+      :number => 0
+    }
+  
+    @player2 = {
+      :name => 'botLucho',
+      :simbol => '-',
+      :number => 0
+    }
+  
   @grilla = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-  grilla_close = [0]
-  posible_move = true
-
-
-  win_c = WinCondition.new
-  sim_c = Loop.new
-
-  puts 'Welcome to TIC-TAC-TOE'
-  puts 'Each player gets a turn'
-  puts "Don't try to cheat or you will get penalized"
-  puts 'You will loose a turn'
-
-  puts 'Whats your name'
-  @player1_name = gets.chomp
-  @player1_name = gets.chomp while @player1_name == ''
-
-  puts 'Whats the name of your partner?'
-  @player2_name = gets.chomp
-  @player2_name = gets.chomp while @player2_name == ''
-
-  while grilla_close != []
-    if posible_move == true
-      print win_c.create_grid(@grilla)
-      print "It is #{@player1_name} turn Pick a number from 1-9 : "
-
-      get_input
+  @grid = WinCondition.new
+  @check = ChangeNumbers.new
+  
+      puts "Please type a name? else will be #{@player1[:name]}"
+      @player1[:name] = gets.chomp
+      @player1[:name] = gets.chomp while @player1[:name] == ''
       
+      puts "Please type a name? else will be #{@player2[:name]}"
+      @player2[:name] = gets.chomp
+      @player2[:name] = gets.chomp while @player2[:name] == ''
 
-        if @grilla.include?(@item)
-          sim_c.sim_change(@item, @grilla, 'X')
-        else
-          puts "#{@player1_name} pick a number between 1-9 diffrente than #{@item} "
-        end
-      
 
-      win_c.win(grilla_close, @grilla, 'X', @player2_name)
+      puts @grid.create_grid(@grilla)
 
-      posible_move = false
+     
 
-    else
-      print win_c.create_grid(@grilla)
-      print "It is #{@player2_name} turn Pick a number from 1-9 : "
 
-        
-        
-          if @grilla.include?(@item)
-          sim_c.sim_change(@item, @grilla, 'O')
-        else
-          puts "#{@player1_name} pick a number between 1-9 diffrente than #{@item} "
-          
-        end
-      
-
-      win_c.win(grilla_close, @grilla, '-', @player2_name)
-      posible_move = true
-    end
+def self.play
+  game = true
+  @turn_count = 0
+  while game
+    @turn_count += 1
+    turns
   end
-  puts win_c.create_grid(@grilla)
-  puts win_c.win(grilla_close, @grilla, 'X')
+
+  
+end
+
+
+  def self.turns
+    @current_player = @turn_count.odd? ? @player1 : @player2
+    print "#{@current_player[:name]}, Please choose a number between 1-9: "     
+      @current_player[:number] = gets.chomp.to_i
+      if @grilla.include?(@current_player[:number])
+        @check.number_change(@current_player[:number], @grilla, @current_player[:simbol])
+        puts @grid.create_grid(@grilla)
+      else
+        puts "Please choose a valid input"
+        turns   
+      end
+  end
+
+  play
+      
+  turns
+
 end
 
 # rubocop:enable Style/IdenticalConditionalBranches

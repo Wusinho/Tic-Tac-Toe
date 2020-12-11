@@ -1,3 +1,4 @@
+
 # require '../bin/main'
 # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Layout/LineLength, Lint/LiteralInInterpolation
 class WinCondition
@@ -21,28 +22,43 @@ class WinCondition
     elsif (arr[0] == sim and arr[4] == sim and arr[8] == sim) || (arr[2] == sim and arr[4] == sim and arr[6] == sim)
       lock.clear
       return '!!!!!!!!!!!!!!!!!!!YOU WIN!!!!!!!!!!!!!!!!!!!'
-    elsif arr.count { |a| a == 'X' } == 5
+    end
+
+  def draw
+     arr.count { |a| a == 'X' } == 5
       lock.clear
       return "IT'S A DRAW"
-    end
-    '!!!!!!!!!!!!!!!!!!!YOU WIN!!!!!!!!!!!!!!!!!!!'
+    
+    '!!!!!!!!!!!!!!!!!!!IT IS A DRAW!!!!!!!!!!!!!!!!!!!'
   end
 
 end
 
-class Loop
-
-
-
-
-
-
-
-  def sim_change(item ,arr, sim)
+class ChangeNumbers
+ 
+  def number_change(item ,arr, sim)
       arr.collect! do |element|
         element == item ? sim : element
       end
     end 
-end
+
+
+#turno = Loop.new
+#turno.turns('Pedro', 'ablo')
+
+
+
+
+
+ 
+
+
+
 
 # rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Layout/LineLength, Lint/LiteralInInterpolation
+
+
+
+
+
+
