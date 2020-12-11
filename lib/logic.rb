@@ -28,11 +28,21 @@ class WinCondition
     '!!!!!!!!!!!!!!!!!!!IT IS A DRAW!!!!!!!!!!!!!!!!!!!'
   end
 
-  def change_element(item, array, simbol)
-    array.collect! do |element|
-      element == item ? simbol : element
-    end
-  end
+end
+
+class Loop
+
+
+
+
+
+
+
+  def sim_change(item ,arr, sim)
+      arr.collect! do |element|
+        element == item ? sim : element
+      end
+    end 
 end
 
 # rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Layout/LineLength, Lint/LiteralInInterpolation
