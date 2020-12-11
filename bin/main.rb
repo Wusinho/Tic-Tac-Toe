@@ -9,35 +9,17 @@ class Dialogue
     @player2_name = name2
   end
 
+  def self.get_input
+      @item = gets.chomp.to_i 
+  end
+
   @grilla = [1, 2, 3, 4, 5, 6, 7, 8, 9]
   grilla_close = [0]
   posible_move = true
 
-  def self.check_turnX
-    item = gets.chomp.to_i
-    if @grilla.include?(item)
-      @grilla.collect! do |element|
-        element == item ? 'X' : element
-      end
-    else
-      puts "#{@player1_name} pick a number betwen 1-9 diffrente than #{item} "
-      check_turnX
-    end
-  end
-
-  def self.check_turnO
-    item = gets.chomp.to_i
-    if @grilla.include?(item)
-      @grilla.collect! do |element|
-        element == item ? '-' : element
-      end
-    else
-      puts "#{@player2_name} pick a number betwen 1-9 diffrente than #{item} "
-      check_turnO
-    end
-  end
 
   win_c = WinCondition.new
+  sim_c = Loop.new
 
   puts 'Welcome to TIC-TAC-TOE'
   puts 'Each player gets a turn'
@@ -57,7 +39,15 @@ class Dialogue
       print win_c.create_grid(@grilla)
       print "It is #{@player1_name} turn Pick a number from 1-9 : "
 
-      check_turnX
+      get_input
+      
+
+        if @grilla.include?(@item)
+          sim_c.sim_change(@item, @grilla, 'X')
+        else
+          puts "#{@player1_name} pick a number between 1-9 diffrente than #{@item} "
+        end
+      
 
       win_c.win(grilla_close, @grilla, 'X', @player2_name)
 
@@ -67,7 +57,15 @@ class Dialogue
       print win_c.create_grid(@grilla)
       print "It is #{@player2_name} turn Pick a number from 1-9 : "
 
-      check_turnO
+        
+        
+          if @grilla.include?(@item)
+          sim_c.sim_change(@item, @grilla, 'O')
+        else
+          puts "#{@player1_name} pick a number between 1-9 diffrente than #{@item} "
+          
+        end
+      
 
       win_c.win(grilla_close, @grilla, '-', @player2_name)
       posible_move = true
