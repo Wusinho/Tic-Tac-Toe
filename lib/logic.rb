@@ -28,26 +28,14 @@ class WinCondition
     '!!!!!!!!!!!!!!!!!!!YOU WIN!!!!!!!!!!!!!!!!!!!'
   end
 
-  def change_element(item, array, simbol)
-    
-    switch = true
-
-   while switch
-    
-    if array.include?(item)
-
-
-      
-    end 
     
 
     
 
 
-   end
-
-  end
+  
 
 end
+
 
 # rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Layout/LineLength
