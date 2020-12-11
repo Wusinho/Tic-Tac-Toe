@@ -1,5 +1,5 @@
 # require '../bin/main'
-# rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Layout/LineLength, Style/GuardClause
+# rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Layout/LineLength, Style/GuardClause, Lint/LiteralInInterpolation
 
 class Board
   def board_game(arr)
@@ -45,4 +45,4 @@ class ChangeNumbers
   end
 end
 
-# rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Layout/LineLength, Style/GuardClause
+# rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Layout/LineLength, Style/GuardClause, Lint/LiteralInInterpolation
