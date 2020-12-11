@@ -27,15 +27,6 @@ class WinCondition
     end
     '!!!!!!!!!!!!!!!!!!!IT IS A DRAW!!!!!!!!!!!!!!!!!!!'
   end
-
-    
-
-    
-
-
-  
-
 end
-
 
 # rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Layout/LineLength
