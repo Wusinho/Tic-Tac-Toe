@@ -25,7 +25,7 @@ class WinCondition
       lock.clear
       return "IT'S A DRAW"
     end
-    '!!!!!!!!!!!!!!!!!!!IT IS A DRAW!!!!!!!!!!!!!!!!!!!'
+    '!!!!!!!!!!!!!!!!!!!YOU WIN!!!!!!!!!!!!!!!!!!!'
   end
 
   def change_element(item, array, simbol)
