@@ -47,11 +47,7 @@ class ChangeNumbers
       arr.collect! do |element|
         element == item ? sim : element
       end
-<<<<<<< HEAD
-    end 
-=======
     end
->>>>>>> Test-H
 end
 
 #turno = Loop.new
