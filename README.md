@@ -32,7 +32,20 @@ After cloning open the file and write in terminal:
 
 The code:
 
-![screenshot](./code.jpeg)
+![screenshot](./assets/code.jpeg)
+
+### Game's instructions
+<ul>
+  <li>
+    Tic-Tac-Toe is a two players game.
+    Follow the instructions on the screen to input the names of the players
+    Each player has to select a number on the board between 1 to 9
+    If you select a number outside the range or a position is already taken, you will need to select again.
+    If there's a winner or there aren't any possible movements, the match ends.
+  </li>
+</ul>
+
+### Authors
 
 👤 <b>Heber Lazo</b>
 
