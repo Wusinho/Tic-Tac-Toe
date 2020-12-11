@@ -22,45 +22,21 @@ class WinCondition
     elsif (arr[0] == sim and arr[4] == sim and arr[8] == sim) || (arr[2] == sim and arr[4] == sim and arr[6] == sim)
       lock.clear
       return '!!!!!!!!!!!!!!!!!!!YOU WIN!!!!!!!!!!!!!!!!!!!'
-    elsif arr.count { |a| a == 'X' } == 5
+    end
+
+  def draw
+     arr.count { |a| a == 'X' } == 5
       lock.clear
       return "IT'S A DRAW"
-    end
+    
     '!!!!!!!!!!!!!!!!!!!IT IS A DRAW!!!!!!!!!!!!!!!!!!!'
   end
 
 end
 
-class Loop
+class ChangeNumbers
  
- 
-  def turns(player1, player2)
-    count = 0
-    while count < 10
-      count += 1
-      if count.odd?
-        puts count
-        player1
-
-      else
-        puts count
-
-        player2
-
-      end
-
-
-
-      
-    
-    end
-    
-  end
-
-
-
-
-  def sim_change(item ,arr, sim)
+  def number_change(item ,arr, sim)
       arr.collect! do |element|
         element == item ? sim : element
       end
