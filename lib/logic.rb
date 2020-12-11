@@ -32,10 +32,40 @@ class WinCondition
 end
 
 class Loop
+  def initialize(x, y)
+    @x = x
+    @y = y
+
+    
+  end
+ 
+  def turns
+    
+    for i in 1..9 do
+     puts i
+     if i.odd?
+
+
+      @x
+     else
+      
+
+      @y
+
+     end
+    end
+    
+  end
 
 
 
+  def player1(name)
+    
+  end
 
+  def player2(name)
+    
+  end
 
 
 
@@ -44,7 +74,20 @@ class Loop
         element == item ? sim : element
       end
     end 
+
 end
+
+#turno = Loop.new
+#turno.turns('Pedro', 'ablo')
+
+
+
+
+
+ 
+
+
+
 
 # rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Layout/LineLength, Lint/LiteralInInterpolation
 
