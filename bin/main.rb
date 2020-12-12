@@ -50,12 +50,10 @@ class Dialogue
 
 
       @current_player[:number] = gets.chomp.to_i
-      print "#{@current_player[:name]}, toma de informacion!!!!!!!!: "
 
       if @grilla.include?(@current_player[:number])
         @check.number_change(@current_player[:number], @grilla, @current_player[:simbol])
-        puts @board.board_game(@grilla)
-      print "#{@current_player[:name]}, en que contador van #{@turn_count} "
+        puts @board.board_game(@grilla) 
 
         @turn_count += 1
         @win.win(@grilla, @current_player[:name], @current_player[:simbol], @checkout)
