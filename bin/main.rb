@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 require_relative '../lib/logic'
+require_relative '../lib/board'
 
 class Dialogue
   @player1 = {
