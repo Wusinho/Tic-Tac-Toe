@@ -24,7 +24,6 @@ class Dialogue
   @board = Board.new
   @check = ChangeNumbers.new
   @win = WinCondition.new
-  @draw = DrawCondition.new
 
   puts "Please type a name? else will be #{@player1[:name]}"
   @player1[:name] = gets.chomp
@@ -57,7 +56,6 @@ class Dialogue
 
         @turn_count += 1
         @win.win(@grilla, @current_player[:name], @current_player[:simbol], @checkout)
-        @draw.draw(@grilla, @current_player[:name], @current_player[:simbol], @checkout)
       else
         puts @board.board_game(@grilla)
         puts "plz choose a correct value not #{@current_player[:number]}"
@@ -68,5 +66,5 @@ class Dialogue
   turns
 
   puts @win.win(@grilla, @current_player[:name], @current_player[:simbol], @checkout)
-  puts @draw.draw(@grilla, @current_player[:name], @current_player[:simbol], @checkout)
+
 end

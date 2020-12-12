@@ -24,18 +24,14 @@ class WinCondition
     elsif (arr[0] == sim and arr[4] == sim and arr[8] == sim) || (arr[2] == sim and arr[4] == sim and arr[6] == sim)
       checkout.clear
       "#{player} WINS"
+    elsif arr.count { |a| a == 'X' } == 5
+      checkout.clear
+      "IT'S A DRAW"      
     end
   end
 end
 
-class DrawCondition
-  def draw(arr, _sim, _player, checkout)
-    if arr.count { |a| a == 'X' } == 5
-      checkout.clear
-      "IT'S A DRAW"
-    end
-  end
-end
+
 
 class ChangeNumbers
   def number_change(item, arr, sim)
