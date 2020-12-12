@@ -1,4 +1,3 @@
-
 class Board
   def board_game(arr)
     <<~HEREDOC

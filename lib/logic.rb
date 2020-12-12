@@ -1,7 +1,4 @@
-# require '../bin/main'
-# rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Layout/LineLength, Style/GuardClause, Lint/LiteralInInterpolation
-
-
+# rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Layout/LineLength
 
 class Analize
   def conditions(arr, player, sim, checkout)
@@ -16,13 +13,9 @@ class Analize
       "#{player} WINS"
     elsif arr.count { |a| a == 'X' } == 5
       checkout.clear
-      "IT'S A DRAW"      
+      "IT'S A DRAW"
     end
   end
 end
 
-
-
-
-
-# rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Layout/LineLength, Style/GuardClause, Lint/LiteralInInterpolation
+# rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Layout/LineLength
