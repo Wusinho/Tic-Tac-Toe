@@ -34,8 +34,8 @@ class WinCondition
 end
 
 class DrawCondition
-  def draw(arr, sim, player, checkout)
-    if arr.count { |a| a == 'X' } == 5   
+  def draw
+    if win == false
     checkout.clear
      return "IT'S A DRAW"
     end

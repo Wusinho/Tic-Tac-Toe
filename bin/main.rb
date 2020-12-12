@@ -48,7 +48,7 @@ class Dialogue
 
         print "#{@current_player[:name]}, Please choose a number between 1-9: "  
         
-        puts "!!!!!!!!!!!!!!!!!!!!!!#{@current_player[:name]} turn!!!!!!!!!!!!!!!!!!!"
+        
         @current_player[:number] = gets.chomp.to_i
         
 
