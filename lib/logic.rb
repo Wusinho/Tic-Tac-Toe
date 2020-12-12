@@ -23,12 +23,6 @@ end
 
 
 
-class ChangeNumbers
-  def number_change(item, arr, sim)
-    arr.collect! do |element|
-      element == item ? sim : element
-    end
-  end
-end
+
 
 # rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Layout/LineLength, Style/GuardClause, Lint/LiteralInInterpolation

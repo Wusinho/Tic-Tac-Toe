@@ -10,3 +10,11 @@ class Board
     HEREDOC
   end
 end
+
+class ChangeNumbers
+  def number_change(item, arr, sim)
+    arr.collect! do |element|
+      element == item ? sim : element
+    end
+  end
+end
