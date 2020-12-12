@@ -30,14 +30,18 @@ puts @board.board_game(@grilla)
 
 def self.turns
   while @checkout != []
-    @current_player = @turn_count.odd? ? @player2 : @player1
+    @current_player = @turn_count.odd? ? @player1 : @player1
     print "#{@current_player[:name]}, Please choose a number between 1-9: "
     @current_player[:number] = gets.chomp.to_i
     if @grilla.include?(@current_player[:number])
       @check.number_change(@current_player[:number], @grilla, @current_player[:simbol])
       puts @board.board_game(@grilla)
       @turn_count += 1
-      @analize.conditions(@grilla, @current_player[:name], @current_player[:simbol], @checkout)
+      @analize.check_rows(@grilla, 3, @current_player[:name], @current_player[:simbol], @checkout)
+      @analize.check_collumns(@grilla, 3, @current_player[:name], @current_player[:simbol], @checkout)
+      @analize.check_cross_right(@grilla, 3, @current_player[:name], @current_player[:simbol], @checkout)
+      @analize.check_cross_left(@grilla, 3, @current_player[:name], @current_player[:simbol], @checkout)
+      
     else
       puts @board.board_game(@grilla)
       puts "The position has already been taken, please choose another number #{@current_player[:number]}"
@@ -46,4 +50,8 @@ def self.turns
   end
 end
 turns
-puts @analize.conditions(@grilla, @current_player[:name], @current_player[:simbol], @checkout)
+
+puts @analize.check_rows(@grilla, 3, @current_player[:name], @current_player[:simbol], @checkout)
+#puts @analize.check_collumns(@grilla, 3, @current_player[:name], @current_player[:simbol], @checkout)
+#puts @analize.check_cross_right(@grilla, 3, @current_player[:name], @current_player[:simbol], @checkout)
+#puts @analize.check_cross_left(@grilla, 3, @current_player[:name], @current_player[:simbol], @checkout)
