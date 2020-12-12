@@ -40,7 +40,7 @@ def self.turns
       @analize.conditions(@grilla, @current_player[:name], @current_player[:simbol], @checkout)
     else
       puts @board.board_game(@grilla)
-      puts "The position has already been taken, please choose another number #{@current_player[:number]}"
+      puts "Invalid move #{@current_player[:number]}"
       turns
     end
   end
