@@ -29,17 +29,10 @@ class WinCondition
 end
 
 class DrawCondition
-<<<<<<< HEAD
-  def draw
-    if win == false
-    checkout.clear
-     return "IT'S A DRAW"
-=======
   def draw(arr, _sim, _player, checkout)
     if arr.count { |a| a == 'X' } == 5
       checkout.clear
       "IT'S A DRAW"
->>>>>>> Milestone-Game_logic
     end
   end
 end
@@ -52,18 +45,4 @@ class ChangeNumbers
   end
 end
 
-<<<<<<< HEAD
-
-
-
-
-# rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Layout/LineLength, Lint/LiteralInInterpolation
-
-
-
-
-
-
-=======
 # rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Layout/LineLength, Style/GuardClause, Lint/LiteralInInterpolation
->>>>>>> Milestone-Game_logic
