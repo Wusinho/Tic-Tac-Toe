@@ -62,7 +62,7 @@ class Dialogue
         @draw.draw(@grilla, @current_player[:name], @current_player[:simbol], @checkout)
       else
         puts @board.board_game(@grilla)
-        @current_player[:number] != Integer ? "dont choose a letter" : "plz choose a correct value not #{@current_player[:number]}"
+        puts "plz choose a correct value not #{@current_player[:number]}"
         turns
       end
     end
