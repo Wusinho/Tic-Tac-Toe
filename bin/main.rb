@@ -23,7 +23,7 @@ require 'tty-font'
 font = TTY::Font.new(:starwars)
 puts "\n"
 puts Rainbow(font.write('Tik-Tak-Toe')).red.bright
-puts (Rainbow('COLOR EDITION').blueviolet.bright.blink.bg(:yellow)).center(50)
+puts Rainbow('COLOR EDITION').blueviolet.bright.blink.bg(:yellow).center(50)
 puts "\n"
 puts Rainbow('  Instructions  '.center(50, '*')).green
 puts "\n"
@@ -32,7 +32,7 @@ print Rainbow(@board.board_game(@grilla)).yellow
 puts Rainbow("Each square has an index number from 1 to 9.\n\nWrite the number where you want to place your move.".center(10)).cyan
 puts "\n"
 puts Rainbow('*'.center(50, '*')).green
-puts (Rainbow("Let's start\n").blue.blink).center(65)
+puts Rainbow("Let's start\n").blue.blink.center(65)
 @turn_count = 0
 
 @check = ChangeNumbers.new
@@ -63,5 +63,5 @@ def self.turns
   end
 end
 turns
-puts (Rainbow(@analize.conditions(@grilla, @current_player[:name], @current_player[:simbol], @checkout)).white.bright.blink).center(65)
+puts Rainbow(@analize.conditions(@grilla, @current_player[:name], @current_player[:simbol], @checkout)).white.bright.blink.center(65)
 # rubocop:enable Layout/LineLength
