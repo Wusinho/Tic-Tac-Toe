@@ -2,7 +2,6 @@
 # require '../bin/main'
 # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Layout/LineLength, Lint/LiteralInInterpolation
   
-
 class Board
   def board_game(arr)
     <<~HEREDOC
@@ -20,6 +19,7 @@ class WinCondition
 
   def win(arr, player, sim, checkout)
     if (arr[0] == sim and arr[1] == sim and arr[2] == sim) || (arr[3] == sim and arr[4] == sim and arr[5] == sim) || (arr[6] == sim and arr[7] == sim and arr[8] == sim)
+      
       checkout.clear     
       return "#{player} WINS"
     elsif (arr[0] == sim and arr[3] == sim and arr[6] == sim) || (arr[1] == sim and arr[4] == sim and arr[7] == sim) || (arr[2] == sim and arr[5] == sim and arr[8] == sim)
@@ -50,14 +50,6 @@ class ChangeNumbers
     end
 end
 
-#turno = Loop.new
-#turno.turns('Pedro', 'ablo')
-
-
-
-
-
- 
 
 
 
