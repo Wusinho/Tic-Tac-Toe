@@ -4,13 +4,13 @@ require_relative '../lib/logic'
 
 class Dialogue
   @player1 = {
-    name: 'Player 1',
+    name: 'Pepe Pistolas',
     simbol: 'X',
     number: 0
   }
 
   @player2 = {
-    name: 'Player 2',
+    name: 'Santo Cachon',
     simbol: 'O',
     number: 0
   }
@@ -37,16 +37,18 @@ class Dialogue
   def self.turns
     @turn_count = 0
     while @checkout != []
-      @current_player = @turn_count.odd? ? @player1 : @player2
+      @current_player = @turn_count.odd? ? @player2 : @player1
       print "#{@current_player[:name]}, Please choose a number between 1-9: "
       @current_player[:number] = gets.chomp.to_i
       if @grilla.include?(@current_player[:number])
         @check.number_change(@current_player[:number], @grilla, @current_player[:simbol])
         puts @board.board_game(@grilla)
-      @turn_count += 1
+        @turn_count += 1
         @win.win(@grilla, @current_player[:name], @current_player[:simbol], @checkout)
         @draw.draw(@grilla, @current_player[:name], @current_player[:simbol], @checkout)
       else
+        puts @board.board_game(@grilla)
+        puts "plz choose a correct value not #{@current_player[:number]}"
         turns
       end
     end
