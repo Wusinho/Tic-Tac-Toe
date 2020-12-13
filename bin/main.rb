@@ -11,14 +11,25 @@ require_relative '../lib/board'
   name: 'Player 2',
   simbol: 'O'
 }
-
-@grilla = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+@new_board = []
+@grilla = []
 @checkout = ['Tic-tac-toe']
+@board = 3
 puts @checkout
 @turn_count = 0
-@board = Board.new
+@board_display = Board.new
 @check = ChangeNumbers.new
 @analize = Analize.new
+
+puts "Please type the size of the board? "
+@board = gets.chomp.to_i
+puts @board.class
+
+@board_display.board_game(@grilla, @board, @new_board)
+
+print @grilla
+print @new_board
+
 puts "Please type a name? or it will be #{@player1[:name]}"
 @player1[:name] = gets.chomp
 @player1[:name] = gets.chomp while @player1[:name] == ''
