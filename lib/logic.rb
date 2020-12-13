@@ -1,25 +1,19 @@
 # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Layout/LineLength
+
 class Analize
   
-
   def check_rows(arr, board, name, simbol, checkout )
     new_grid = []
     new_grid += arr
-            count = 0
-            
-        while count  < 3
-          
-          if new_grid.shift(3).all? {|x| x == simbol}
+    count = 0         
+        while count  < board         
+          if new_grid.shift(board).all? {|x| x == simbol}
 
             checkout.clear 
             return "#{name} WINS!!!!!!"              
           end
           count += 1
         end
-                 
-            
-             
-        
   end 
 
   def check_collumns(arr, board, name, simbol, checkout )
@@ -37,12 +31,10 @@ class Analize
         return "#{name} WINS!!!!!!"  
       end
       arr_check.shift(board) 
-    
       count += 1
     
     end
 end
-
 
     def check_cross_right(arr, board, name, simbol, checkout ) 
       arr_check = []
@@ -57,7 +49,6 @@ end
       end
     end
 
-
     def check_cross_left(arr, board, name, simbol, checkout )
       arr_check = []
       arr.each_with_index do |element, index|
@@ -69,11 +60,10 @@ end
          checkout.clear 
          return "#{name} WINS!!!!!!"  
       end
-    
     end
 
     def draw(arr, board, name, simbol, checkout )
-      if arr.count {|x|  x == simbol} == 5 
+      if arr.count {|x|  x == simbol} == ((board**2) /2.to_f).ceil  
         checkout.clear
         return "DRAW" 
       end

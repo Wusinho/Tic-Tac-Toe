@@ -5,13 +5,11 @@ require_relative '../lib/board'
 
 @player1 = {
   name: 'Player 1',
-  simbol: 'X',
-  number: 0
+  simbol: 'X'
 }
 @player2 = {
   name: 'Player 2',
-  simbol: 'O',
-  number: 0
+  simbol: 'O'
 }
 
 @grilla = [1, 2, 3, 4, 5, 6, 7, 8, 9]
