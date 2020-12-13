@@ -13,6 +13,7 @@ require_relative '../lib/board'
   simbol: 'O',
   number: 0
 }
+
 @grilla = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 @checkout = ['Tic-tac-toe']
 puts @checkout
@@ -36,11 +37,12 @@ def self.turns
     if @grilla.include?(@current_player[:number])
       @check.number_change(@current_player[:number], @grilla, @current_player[:simbol])
       puts @board.board_game(@grilla)
-      @turn_count += 1
       @analize.check_rows(@grilla, 3, @current_player[:name], @current_player[:simbol], @checkout)
       @analize.check_collumns(@grilla, 3, @current_player[:name], @current_player[:simbol], @checkout)
       @analize.check_cross_right(@grilla, 3, @current_player[:name], @current_player[:simbol], @checkout)
       @analize.check_cross_left(@grilla, 3, @current_player[:name], @current_player[:simbol], @checkout)
+      @turn_count += 1
+
       @analize.draw(@grilla, 3, @current_player[:name], @current_player[:simbol], @checkout)
 
       
@@ -57,5 +59,5 @@ puts @analize.check_rows(@grilla, 3, @current_player[:name], @current_player[:si
 puts @analize.check_collumns(@grilla, 3, @current_player[:name], @current_player[:simbol], @checkout)
 puts @analize.check_cross_right(@grilla, 3, @current_player[:name], @current_player[:simbol], @checkout)
 puts @analize.check_cross_left(@grilla, 3, @current_player[:name], @current_player[:simbol], @checkout)
-puts@analize.draw(@grilla, 3, @current_player[:name], @current_player[:simbol], @checkout)
+puts @analize.draw(@grilla, 3, @current_player[:name], @current_player[:simbol], @checkout)
 

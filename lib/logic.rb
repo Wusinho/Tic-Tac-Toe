@@ -10,7 +10,9 @@ class Analize
         while count  < 3
           
           if new_grid.shift(3).all? {|x| x == simbol}
+
             checkout.clear 
+            return "#{name} WINS!!!!!!"              
           end
           count += 1
         end
@@ -30,7 +32,10 @@ class Analize
           
         end
       end
-      arr_check.all? {|x| x == simbol} ? checkout.clear : false
+      if arr_check.all? {|x| x == simbol} 
+        checkout.clear 
+        return "#{name} WINS!!!!!!"  
+      end
       arr_check.shift(board) 
     
       count += 1
@@ -46,7 +51,10 @@ end
           arr_check << element
         end
       end
-      arr_check.all? {|x| x == simbol} ? checkout.clear : false
+      if arr_check.all? {|x| x == simbol} 
+        checkout.clear 
+        return "#{name} WINS!!!!!!"  
+      end
     end
 
 
@@ -57,7 +65,10 @@ end
           arr_check << element
         end
       end
-      arr_check.all? {|x| x == simbol} ? checkout.clear : false
+      if arr_check.all? {|x| x == simbol} 
+         checkout.clear 
+         return "#{name} WINS!!!!!!"  
+      end
     
     end
 
