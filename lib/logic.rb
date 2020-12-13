@@ -3,18 +3,21 @@ class Analize
   
 
   def check_rows(arr, board, name, simbol, checkout )
-    arr_check = []
-    arr.each_with_index do |element, index|
-      if index 
-        arr_check << element
-          if arr_check.count == board
+    new_grid = []
+    new_grid += arr
+            count = 0
             
-            arr_check.map.all? {|x| x == "X"} ? checkout.clear : false  
-            arr_check.shift(board) 
+        while count  < 3
+          
+          if new_grid.shift(3).all? {|x| x == simbol}
+            checkout.clear 
           end
-      end 
-    end 
-    return "#{name} WON!"
+          count += 1
+        end
+                 
+            
+             
+        
   end 
 
   def check_collumns(arr, board, name, simbol, checkout )
@@ -22,19 +25,17 @@ class Analize
     arr_check = []
     while count < board
       arr.each_with_index do |element, index|
-        if (index+count) % board == 0       
-          arr_check << element        
-          if arr_check.count == board          
-            
-
-            arr_check.all? {|x| x == simbol} ? checkout.clear : false   
-            arr_check.shift(board) 
-          end
+        if (index+count) % board == 0  
+          arr_check << element
+          
         end
       end
+      arr_check.all? {|x| x == simbol} ? checkout.clear : false
+      arr_check.shift(board) 
+    
       count += 1
-  end
-  return "#{name} WON!"
+    
+    end
 end
 
 
@@ -42,27 +43,31 @@ end
       arr_check = []
       arr.each_with_index do |element, index|
         if (index) % (board + 1) == 0
-          arr_check << element         
-          if arr_check.count == board       
-            arr_check.all? {|x| x == simbol} ? checkout.clear : false        
-          end    
+          arr_check << element
         end
       end
-    #return "#{name} WON!"
+      arr_check.all? {|x| x == simbol} ? checkout.clear : false
     end
 
 
     def check_cross_left(arr, board, name, simbol, checkout )
       arr_check = []
       arr.each_with_index do |element, index|
-        if (index) % (board-1) == 0 and index != 0 and index != ((board**2)-1)         
-          arr_check << element         
-          if arr_check.count == board       
-            arr_check.all? {|x| x == simbol} ? checkout.clear : false                    
-          end  
-          end
+        if (index) % (board-1) == 0 and index != 0 and index != ((board**2)-1)   
+          arr_check << element
+        end
       end
-    #return "#{name} WON!"
+      arr_check.all? {|x| x == simbol} ? checkout.clear : false
+    
     end
+
+    def draw(arr, board, name, simbol, checkout )
+      if arr.count {|x|  x == simbol} == 5 
+        checkout.clear
+        return "DRAW" 
+      end
+    end
+
+
 end
 # rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Layout/LineLength

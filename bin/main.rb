@@ -30,7 +30,7 @@ puts @board.board_game(@grilla)
 
 def self.turns
   while @checkout != []
-    @current_player = @turn_count.odd? ? @player1 : @player1
+    @current_player = @turn_count.odd? ? @player2 : @player1
     print "#{@current_player[:name]}, Please choose a number between 1-9: "
     @current_player[:number] = gets.chomp.to_i
     if @grilla.include?(@current_player[:number])
@@ -41,6 +41,8 @@ def self.turns
       @analize.check_collumns(@grilla, 3, @current_player[:name], @current_player[:simbol], @checkout)
       @analize.check_cross_right(@grilla, 3, @current_player[:name], @current_player[:simbol], @checkout)
       @analize.check_cross_left(@grilla, 3, @current_player[:name], @current_player[:simbol], @checkout)
+      @analize.draw(@grilla, 3, @current_player[:name], @current_player[:simbol], @checkout)
+
       
     else
       puts @board.board_game(@grilla)
@@ -52,6 +54,8 @@ end
 turns
 
 puts @analize.check_rows(@grilla, 3, @current_player[:name], @current_player[:simbol], @checkout)
-#puts @analize.check_collumns(@grilla, 3, @current_player[:name], @current_player[:simbol], @checkout)
-#puts @analize.check_cross_right(@grilla, 3, @current_player[:name], @current_player[:simbol], @checkout)
-#puts @analize.check_cross_left(@grilla, 3, @current_player[:name], @current_player[:simbol], @checkout)
+puts @analize.check_collumns(@grilla, 3, @current_player[:name], @current_player[:simbol], @checkout)
+puts @analize.check_cross_right(@grilla, 3, @current_player[:name], @current_player[:simbol], @checkout)
+puts @analize.check_cross_left(@grilla, 3, @current_player[:name], @current_player[:simbol], @checkout)
+puts@analize.draw(@grilla, 3, @current_player[:name], @current_player[:simbol], @checkout)
+
