@@ -14,7 +14,7 @@ require_relative '../lib/board'
 @new_board = []
 @grilla = []
 @checkout = ['Tic-tac-toe']
-@board = 3
+#@board = 3
 puts @checkout
 @turn_count = 0
 @board_display = Board.new
@@ -23,10 +23,9 @@ puts @checkout
 
 puts "Please type the size of the board? "
 @board = gets.chomp.to_i
-puts @new_board.class
 
 @board_display.create_board(@grilla, @board)
-print @grilla
+
 
 
 

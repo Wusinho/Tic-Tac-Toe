@@ -2,25 +2,32 @@
 class Board
   def create_board(arr, board )
     arr = (1...board*board+1).to_a        
-
-    
+    arr
+    print arr
 
   end
 
   def board_game(arr, board, new_board)
-    
       arr = (0...board*board).to_a        
       until arr == []
         new_board += [arr[0..board-1]]
           arr.shift(board)
       end 
           
-      new_board
+      print new_board
   end
-
-
 end
 
+arr = []
+new_arr = []
+puts 'size?'
+size = gets.chomp.to_i
+
+nuevo = Board.new
+
+nuevo.create_board(arr, size)
+
+nuevo.board_game(arr, size, new_arr )
 
 
 
