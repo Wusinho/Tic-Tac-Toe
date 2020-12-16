@@ -1,4 +1,4 @@
-#rubocop: disable Lint/LiteralInInterpolation
+# rubocop: disable Lint/LiteralInInterpolation
 
 class Board
   def board_game(arr)
@@ -20,4 +20,4 @@ class ChangeNumbers
   end
 end
 
-#rubocop: enable Lint/LiteralInInterpolation
+# rubocop: enable Lint/LiteralInInterpolation
