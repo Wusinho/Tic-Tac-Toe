@@ -25,7 +25,7 @@ describe Analize do
     end
 
     it 'gives the condition if it is a win in a collumn ' do
-      expect(change.conditions(array2, player, sim, checkout)).to eql( ">>Juan WINS<<")
+      expect(change.conditions(array2, player, sim, checkout)).to eql('>>Juan WINS<<')
     end
 
     it 'gives the condition if it is a draw' do
