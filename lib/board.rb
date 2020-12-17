@@ -1,3 +1,5 @@
+# rubocop disable: Lint/LiteralInInterpolation
+
 class Board
   def board_game(arr)
     <<~HEREDOC
@@ -19,3 +21,5 @@ class ChangeNumbers
     end
   end
 end
+
+# rubocop enable: Lint/LiteralInInterpolation

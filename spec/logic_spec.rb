@@ -1,3 +1,5 @@
+# rubocop disable: Layout/LineLength
+
 require_relative '../lib/board'
 require_relative '../lib/logic'
 
@@ -65,3 +67,5 @@ describe Analize do
     end
   end
 end
+
+# rubocop enable: Layout/LineLength
