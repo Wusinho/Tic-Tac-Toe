@@ -5,7 +5,7 @@ describe Board do
   describe 'board_game:' do
     it 'creates de board when an array is given' do
       board = Board.new
-      expect(board.board_game([1,2,3,4,5,6,7,8,9])).to eql("\n    | 1 | 2 | 3 |\n    -------------\n    | 4 | 5 | 6 |\n    -------------\n    | 7 | 8 | 9 |\n\n")
+      expect(board.board_game([1, 2, 3, 4, 5, 6, 7, 8, 9])).to eql("\n    | 1 | 2 | 3 |\n    -------------\n    | 4 | 5 | 6 |\n    -------------\n    | 7 | 8 | 9 |\n\n")
     end
     it 'creates and empty board witouth items when the array is empty' do
       board = Board.new
@@ -17,19 +17,18 @@ end
 describe ChangeNumbers do
   describe 'number_change:' do
     let(:changee) { ChangeNumbers.new }
-    let(:arrayt) { [1, 2, 3, 4, 5, 6, 7, 8, 9]}
-    let(:number) { 2}
-    let(:number20) { 20}
-    let(:simbol) {'X'}
+    let(:arrayt) { [1, 2, 3, 4, 5, 6, 7, 8, 9] }
+    let(:number) { 2 }
+    let(:number20) { 20 }
+    let(:simbol) { 'X' }
 
     it 'change an element from the array with a symbol' do
       expect(changee.number_change(number, arrayt, simbol)).to eql([1, 'X', 3, 4, 5, 6, 7, 8, 9])
     end
 
-     it 'will not change anything on the board if the element is not in the array' do
-       expect(changee.number_change(number20, arrayt, simbol)).to eql([1, 2, 3, 4, 5, 6, 7, 8, 9])
-     end
-
+    it 'will not change anything on the board if the element is not in the array' do
+      expect(changee.number_change(number20, arrayt, simbol)).to eql([1, 2, 3, 4, 5, 6, 7, 8, 9])
+    end
   end
 end
 
