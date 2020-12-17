@@ -14,7 +14,7 @@ class Board
           arr.shift(board)
       end 
           
-      print new_board
+      new_board
   end
 end
 
