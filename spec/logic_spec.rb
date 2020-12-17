@@ -24,7 +24,7 @@ describe Analize do
       expect(change.conditions(array, player, sim, checkout)).to eql(nil)
     end
 
-    it 'prints the winner if it is a win in a collumn ' do
+    it 'prints the winner if it is a win in a column ' do
       expect(change.conditions(array2, player, sim, checkout)).to eql('Juan WINS')
     end
 
