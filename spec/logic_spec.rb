@@ -20,15 +20,15 @@ describe Analize do
     let(:sim) { 'X' }
     let(:checkout) { [1] }
 
-    it 'gives the condition if it is a win in a row' do
+    it 'prints the winner the if it is a win in a row' do
       expect(change.conditions(array, player, sim, checkout)).to eql(nil)
     end
 
-    it 'gives the condition if it is a win in a collumn ' do
+    it 'prints the winner if it is a win in a collumn ' do
       expect(change.conditions(array2, player, sim, checkout)).to eql('Juan WINS')
     end
 
-    it 'gives the condition if it is a draw' do
+    it 'tells the players its a draw' do
       expect(change.conditions(array3, player, sim, checkout)).to eql("IT'S A DRAW")
     end
   end
