@@ -2,44 +2,49 @@
 class Board
 
   def initialize
-    @size = 0
-    @array = []
+    @sizes = 0
+    @arr = []
     
   end
 
 
-  def create_board(board)
-    @array = (1...board*board+1).to_a      
+  def create_board(board, arr)
+    
+    arr << (1..(board*board)).to_a
+    @arr = arr.flatten!
   end
   
 
-  def board_game(board, selection, sim )
-
-    number_change(selection, create_board(board), sim)
-    
-    max_count = board**2
-    count = 0
-      while count < max_count
-        @array << @array[count..((board-1)+count)]
-        count += board
-      end
-      @array.slice!(0..(max_count-1))
-      #print @array
-
-      print_table(@array)
+  
+ 
 
 
-    end
-
-
-     def number_change(selection, board, sim)
-       board.collect! do |element|
+     def number_change(selection, arr, sim)
+      return selection if (selection and sim) == nil
+       arr.collect! do |element|
          element == selection ? sim : element
        end
+       #puts "cambiando el numero x la senhals #{arr}"
      end
+
+def create_2d(sizes, arr)
+  
+  
+  max_count = sizes**sizes
+  count = 0
+    while count < max_count
+      @arr << @arr[count..((sizes-1)+count)]
+      count += sizes
+    end
+    @arr.slice!(0..(max_count-1))
+    print @arr
+
+end
+
 
 
  def print_table(arr, margin_width = 2)
+    #print arr
 
    column_widths = []
    arr.each do |row|
@@ -53,10 +58,25 @@ class Board
        cell.to_s.ljust(column_widths[column_num] + margin_width)
      end.join
    end)
+
+   #puts "print table"
+
  end
 
 
+ def board_game(selection, sim, arr, sizes)
+  #print arr
 
+  
+   
+  
+  number_change(selection, arr , sim)
+    
+  
+  create_2d(sizes, arr)
+
+
+end
 
 
 
@@ -64,18 +84,22 @@ class Board
 
 end
 
-# nuevo = Board.new
+  nuevo = Board.new
 
-# puts "size"
-# size = gets.chomp.to_i  
+  puts "size"
+  size = gets.chomp.to_i  
 
-# puts 'whats the number?'
-# num = gets.chomp.to_i
 
-# puts "symbol"
-# sim = gets.chomp
+nuevo.create_2d(3, [1,2,3,4,5,6,7,8,9])
 
-# nuevo.board_game(size, num, sim)
+
+#  puts 'whats the number?'
+#  num = gets.chomp.to_i
+
+#  puts "symbol"
+#  sim = gets.chomp
+
+#  nuevo.board_game(size, num, sim)
 
 
 
