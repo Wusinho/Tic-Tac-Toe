@@ -12,6 +12,7 @@ class Board
     
     arr << (1..(board*board)).to_a
     arr = arr.flatten!
+    
   end
   
 
@@ -23,7 +24,7 @@ class Board
        
      end
 
-def create_2d(board, arr)
+def create_2d(board, arr, new_arr)
   
   max_count = board*board
   
@@ -34,7 +35,8 @@ def create_2d(board, arr)
       count += board
       other_count += 1
     end
-    arr.slice!(0..(max_count-1))
+    
+    new_arr = arr - arr.slice(0..(max_count-1))
     
 
 end
@@ -42,11 +44,11 @@ end
 
 
  def print_table(arr, margin_width = 2)
-    
+  #print arr
 
    column_widths = []
    arr.each do |row|
-     row.each.with_index do |cell, column_num|
+     row.each_with_index do |cell, column_num|
        column_widths[column_num] = [column_widths[column_num] || 0, cell.to_s.size].max
      end
    end
@@ -57,22 +59,19 @@ end
      end.join
    end)
 
-   #puts "print table"
+
+   
 
  end
 
 
- def board_game(selection, sim, arr, board)
+ def board_game(selection, sim, arr, board, new_arr)
    
-  create_board(board, arr)
-
 
   number_change(selection, arr , sim)
-    
-  
-  create_2d(board, arr)
+  create_2d(board, arr, new_arr)
 
-  print_table(arr)
+  print_table(new_arr)
 
 end
 
@@ -83,18 +82,18 @@ end
 end
 
 
-arr = []
 
-  nuevo = Board.new
 
-  puts "size"
-  size = gets.chomp.to_i  
 
-nuevo.create_board(size, arr)
+
+
+
+
+#nuevo.create_board(size, arr)
 #print arr
-nuevo.create_2d(size, arr)
+#nuevo.create_2d(size, arr)
 
-nuevo.print_table(arr)
+#nuevo.print_table(arr)
 
 
 

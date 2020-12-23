@@ -16,11 +16,11 @@ require_relative '../lib/board'
   tablero: [],
   size: 0
 }
-
+@new_arr = []
 
 
 @checkout = ['Tic-tac-toe']
-#@grilla = []
+
 @turn_count = 0
 
 @board_display = Board.new
@@ -29,7 +29,10 @@ require_relative '../lib/board'
 puts "Please type the size of the board? "
 @game[:size] = STDIN.gets.chomp.to_i
 @board_display.create_board(@game[:size] , @game[:tablero])
-#print @grilla
+
+@board_display.create_2d(@game[:size], @game[:tablero], @new_arr)
+
+@board_display.print_table(@new_arr)
 
 puts "Please type a name? or it will be #{@player1[:name]}"
 @player1[:name] = STDIN.gets.chomp
@@ -44,14 +47,14 @@ puts "Please type a name? or it will be #{@player2[:name]}"
 def self.turns
   while @checkout != []
     @current_player = @turn_count.odd? ? @player2 : @player1
-    print "esta es la grilla #{@game[:tablero]}"
+#    print "esta es la grilla #{@game[:tablero]}"
     print "#{@current_player[:name]}, Please choose a number between 1-9: "
     @current_player[:number] = STDIN.gets.chomp.to_i
     
     
     
     if (@game[:tablero]).include?(@current_player[:number])
-      @board_display.board_game(@current_player[:number], @current_player[:simbol], @game[:tablero], @game[:size])
+      @board_display.board_game(@current_player[:number], @current_player[:simbol], @game[:tablero], @game[:size],  @new_arr)
       
     
       #@analize.check_rows(@grilla, 3, @current_player[:name], @current_player[:simbol], @checkout)
