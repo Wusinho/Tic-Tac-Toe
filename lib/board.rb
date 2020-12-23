@@ -11,40 +11,38 @@ class Board
   def create_board(board, arr)
     
     arr << (1..(board*board)).to_a
-    @arr = arr.flatten!
+    arr = arr.flatten!
   end
   
-
-  
- 
-
 
      def number_change(selection, arr, sim)
       return selection if (selection and sim) == nil
        arr.collect! do |element|
          element == selection ? sim : element
        end
-       #puts "cambiando el numero x la senhals #{arr}"
+       
      end
 
-def create_2d(sizes, arr)
+def create_2d(board, arr)
   
+  max_count = board*board
   
-  max_count = sizes**sizes
+  other_count = 0
   count = 0
     while count < max_count
-      @arr << @arr[count..((sizes-1)+count)]
-      count += sizes
+      arr << arr[count..((board-1)+count)]
+      count += board
+      other_count += 1
     end
-    @arr.slice!(0..(max_count-1))
-    print @arr
+    arr.slice!(0..(max_count-1))
+    
 
 end
 
 
 
  def print_table(arr, margin_width = 2)
-    #print arr
+    
 
    column_widths = []
    arr.each do |row|
@@ -64,33 +62,43 @@ end
  end
 
 
- def board_game(selection, sim, arr, sizes)
-  #print arr
-
-  
+ def board_game(selection, sim, arr, board)
    
-  
+  create_board(board, arr)
+
+
   number_change(selection, arr , sim)
     
   
-  create_2d(sizes, arr)
+  create_2d(board, arr)
+
+  print_table(arr)
+
+end
+
+
+
 
 
 end
 
 
-
-
-
-end
+arr = []
 
   nuevo = Board.new
 
   puts "size"
   size = gets.chomp.to_i  
 
+nuevo.create_board(size, arr)
+#print arr
+nuevo.create_2d(size, arr)
 
-nuevo.create_2d(3, [1,2,3,4,5,6,7,8,9])
+nuevo.print_table(arr)
+
+
+
+
 
 
 #  puts 'whats the number?'
